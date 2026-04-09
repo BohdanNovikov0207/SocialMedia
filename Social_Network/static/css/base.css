@@ -1,0 +1,92 @@
+header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left:0;
+    width:100vw;
+    height: 8.15vh; /*4.14vh;*/
+   
+}
+body{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    flex-direction: column;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    height: 2.59vh;
+    width: 90vw;
+    padding: 1.67vh, 5.56vw, 1.67vh, 5.56vw; 
+  
+   
+}
+
+.header-container-logo{
+    position:relative;
+    width: 7.55vw; /*10.07vw;*/
+    height: 2.59vh;   /*0.85vh;*/
+   
+}
+.header-container-logo img{
+    position: absolute;
+    max-height: 100%;
+}
+    
+.header-container-nav{
+    position: right relative;
+    width: 53vw; /*53.82vw;*/
+    height:2.59vh;        /*1.88vh;*/
+   
+}
+
+.header-container-nav nav{
+    position: absolute;
+    display: flex;
+    width: 53vw; /*53.82vw;*/
+    height:2.59vh;        /*1.88vh;*/
+}
+
+.inner-container-nav{
+    display: flex;
+    height:2.59vh;
+    width: 40.36vw;
+    justify-content: center;
+    gap: 0.5vw;
+}
+
+.inner-container-nav img{
+    max-height: 100%;
+}
+
+/**.main-container{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    width:95vw;
+    height:92.59vh;
+    flex-direction: column;
+    background-color: #FAF8FF;
+}**/
+
+main{
+    position: relative;
+}
+
+.bottom-panel{
+    width: 32.49vw;
+    height: 91.90vh;
+    border: #CDCED2 solid 1px;
+    border-radius: 10px;
+    background-color: blueviolet;
+}
