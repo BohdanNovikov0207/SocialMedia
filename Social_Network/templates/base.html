@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -10,32 +11,32 @@
         <header> 
             <div class="header-container">
                 <div class="header-container-logo">
-                    <img src="static/images/logo.png" alt="">
+                    <img src="{% static 'images/logo.png' %}" alt="">
                 </div>
                 <div class="header-container-nav">
                     <nav>
                         <div class="inner-container-nav">
-                            <img src="static/images/home.png" alt="">
+                            <img src="{% static 'images/home.png' %}" alt="">
                             <a>Головна</a>
                         </div>
                         <div class="inner-container-nav">
-                            <img src="static/images/post.png" alt="">
+                            <img src="{% static 'images/post.png' %}" alt="">
                             <a>Мої публікації</a>
                         </div>
                         <div class="inner-container-nav">
-                            <img src="static/images/people.png" alt="">
+                            <img src="{% static 'images/people.png' %}" alt="">
                             <a>Друзі</a>
                         </div>
                           <div class="inner-container-nav">
-                            <img src="static/images/chat.png" alt="">
+                            <img src="{% static 'images/chat.png' %}" alt="">
                             <a>Чати</a>
                         </div>
                         <div class="inner-container-nav">
-                            <img src="static/images/settings.png" alt="">
+                            <img src="{% static 'images/settings.png' %}" alt="">
                             <a>Налаштування</a>
                         </div>
                         <div class="inner-container-nav">
-                                <img src="static/images/exit.png" alt="">
+                                <img src="{% static 'images/exit.png' %}" alt="">
                                 <a>Вихід</a>
                         </div>
                     </nav>

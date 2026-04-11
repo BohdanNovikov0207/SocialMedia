@@ -21,4 +21,5 @@ from .views import HomeView
 
 urlpatterns = [
     path(route='', view=HomeView.as_view(), name="MainPage")
+    
 ]
