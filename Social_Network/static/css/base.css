@@ -1,74 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
 }
 
+/* HEADER */
 header {
+    width: 100%;
+    height: 8vh;
+    background: white;
+    border-bottom: 0.1vh solid #ddd;
+
     display: flex;
     justify-content: center;
-    background: #fff;
-    border-bottom: 0.05rem solid #ddd;
+    align-items: center;
 }
 
 .header-container {
-    width: 100%;
-    max-width: 75rem;
-    margin: 0 auto;
+    width: 70vw;
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-
-    padding: 0.6rem 1rem;
 }
 
+/* LOGO */
 .header-container-logo img {
-    height: 1.6rem;
+    height: 3vh;
 }
 
+/* NAV */
 .header-container-nav {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 2vw;
 }
 
+/* ITEMS */
 .inner-container-nav {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-
-    padding: 0.4em 0.8em;
-    border-radius: 0.6em;
-
-    transition: 0.2s ease;
 }
 
+/* LINKS */
 .inner-container-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+
+    padding: 0.7vh 1vw;
+    border-radius: 1vh;
+
     text-decoration: none;
     color: #333;
-    font-size: 0.95rem;
-    line-height: 1;
+
+    transition: 0.2s;
 }
 
+/* ICONS */
 .inner-container-nav img {
-    height: 1.1em;
-    display: block;
+    height: 2.5vh;
 }
 
-.inner-container-nav:hover {
+/* HOVER */
+.inner-container-nav a:hover {
     background-color: #d81b60;
+    color: white;
 }
 
-.inner-container-nav:hover a {
-    color: #fff;
-}
+/* LOGOUT */
 .logout {
-    border: 0.08rem solid #d81b60;
-    border-radius: 2em;
-    padding: 0.2em 0.6em;
+    border: 0.2vh solid #d81b60;
+    border-radius: 5vh;
+
+    padding: 0.5vh 1.5vw;
 
     color: #d81b60;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.inner-container-nav:hover .logout {
-    color: #fff;
+.logout:hover {
+    background-color: #d81b60;
+    color: white;
+}
+
+/* MAIN */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 70vw;
+    margin-top: 2vh;
+}
+
+/* CONTENT */
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.content h1 {
+    text-align: center;
 }

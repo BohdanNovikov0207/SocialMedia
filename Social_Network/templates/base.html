@@ -1,67 +1,57 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE html><html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Мой сайт{% endblock %}</title>
-    {% block links %}{% endblock %}
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>World IT</title>
 
-<header>
-    <div class="header-container">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 
-        
-        <div class="header-container-logo">
-            <a href="{% url 'MainPage:home_app' %}">
-                <img src="{% static 'images/logo.png' %}" alt="Logo">
-            </a>
-        </div>
-
-        
-        <nav class="header-container-nav">
-
-            <div class="inner-container-nav">
-                <img src="{% static 'images/home.png' %}" alt="Home">
-                <a href="{% url 'MainPage:home_app' %}">Головна</a>
-            </div>
-
-            <div class="inner-container-nav">
-                <img src="{% static 'images/post.png' %}" alt="Post">
-                <a href="{% url 'PostPage:post_app' %}">Мої публікації</a>
-            </div>
-
-            <div class="inner-container-nav">
-                <img src="{% static 'images/people.png' %}" alt="Friends">
-                <a href="{% url 'FriendsPage:friends_app' %}">Друзі</a>
-            </div>
-
-            <div class="inner-container-nav">
-                <img src="{% static 'images/settings.png' %}" alt="Settings">
-                <a href="{% url 'user_app:settings_app' %}">Налаштування</a>
-            </div>
-
-            <div class="inner-container-nav">
-                <img src="{% static 'images/exit.png' %}" alt="Logout">
-                <a class="logout" href="#">Вихід</a>  
-            </div>
-
-        </nav>
-
+</head><body><header>
+    <div class="header-container">    <!-- LOGO -->
+    <div class="header-container-logo">
+        <img src="{% static 'images/logo.png' %}" alt="logo">
     </div>
-</header>
 
-<main>
-    <div class="main-container">
-        <div class="bottom-panel">
-            {% block bottom-panel %}{% endblock %}
+    <!-- NAV -->
+    <nav class="header-container-nav">
+
+        <div class="inner-container-nav">
+            <img src="{% static 'images/home.png' %}" alt="">
+            <a href="{% url 'home' %}">Головна</a>
         </div>
-        <div class="content">
-            {% block content %}{% endblock %}
+
+        <div class="inner-container-nav">
+            <img src="{% static 'images/post.png' %}" alt="">
+            <a href="{% url 'posts' %}">Мої публікації</a>
         </div>
+
+        <div class="inner-container-nav">
+            <img src="{% static 'images/people.png' %}" alt="">
+            <a href="{% url 'friends' %}">Друзі</a>
+        </div>
+
+        <div class="inner-container-nav">
+            <img src="{% static 'images/settings.png' %}" alt="">
+            <a href="{% url 'settings' %}">Налаштування</a>
+        </div>
+
+        <div class="inner-container-nav">
+            <img src="{% static 'images/exit.png' %}" alt="">
+            <a class="logout" href="#">Вихід</a>
+        </div>
+
+    </nav>
+
+</div>
+
+</header><main>
+    <div class="main-container"><div class="content">
+        {% block content %}
+        {% endblock %}
     </div>
-</main>
 
-</body>
+</div>
+
+</main></body>
 </html>
