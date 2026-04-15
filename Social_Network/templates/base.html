@@ -1,55 +1,79 @@
 {% load static %}
-
-<!DOCTYPE html><html lang="uk">
+<!DOCTYPE html>
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World IT</title><link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>World IT</title>
 
-</head><body><header>
-    <div class="header-container">    
-    <div class="header-container-logo">
-        <img src="{% static 'images/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+
+<body>
+
+<header>
+    <div class="header-container">
+
+        
+        <div class="header-container-logo">
+            <img src="{% static 'images/logo.png' %}">
+        </div>
+
+        
+        <nav class="header-container-nav">
+
+            <a class="nav-item" href="{% url 'home' %}">
+                <img src="{% static 'images/home.png' %}">
+                <span>Головна</span>
+            </a>
+
+            <a class="nav-item" href="{% url 'posts' %}">
+                <img src="{% static 'images/post.png' %}">
+                <span>Мої публікації</span>
+            </a>
+
+            <a class="nav-item" href="{% url 'friends' %}">
+                <img src="{% static 'images/people.png' %}">
+                <span>Друзі</span>
+            </a>
+
+            <a class="nav-item" href="{% url 'chats' %}">
+                <img src="{% static 'images/chat.png' %}">
+                <span>Чати</span>
+            </a>
+
+            <a class="nav-item" href="{% url 'settings' %}">
+                <img src="{% static 'images/settings.png' %}">
+                <span>Налаштування</span>
+            </a>
+
+            <a class="nav-item logout" href="#">
+                <img src="{% static 'images/exit.png' %}">
+                <span>Вихід</span>
+            </a>
+
+        </nav>
+
     </div>
+</header>
 
-    
-    <nav class="header-container-nav">
-
-        <a class="nav-item" href="{% url 'home' %}">
-            <img src="{% static 'images/home.png' %}">
-            <span>Головна</span>
-        </a>
-
-        <a class="nav-item" href="{% url 'posts' %}">
-            <img src="{% static 'images/post.png' %}">
-            <span>Мої публікації</span>
-        </a>
-
-        <a class="nav-item" href="{% url 'friends' %}">
-            <img src="{% static 'images/people.png' %}">
-            <span>Друзі</span>
-        </a>
-
-        <a class="nav-item" href="{% url 'settings' %}">
-            <img src="{% static 'images/settings.png' %}">
-            <span>Налаштування</span>
-        </a>
-
-        <a class="nav-item logout" href="#">
-            <img src="{% static 'images/exit.png' %}">
-            <span>Вихід</span>
-        </a>
-
-    </nav>
-
-</div>
-
-</header><main>
+<main>
     <div class="main-container">
+
+        
+        <div class="bottom-panel">
+            {% block bottom-panel %}
+            {% endblock %}
+        </div>
+
+        
         <div class="content">
             {% block content %}
             {% endblock %}
         </div>
+
     </div>
-</main></body>
+</main>
+
+</body>
 </html>

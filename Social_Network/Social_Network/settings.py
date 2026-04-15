@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'friends_app',
     'home_app',
     'post_app',
-    'user_app'
+    'user_app',
+    'chat_app',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,8 @@ TEMPLATES = [
             BASE_DIR / "friends_app" / "templates",
             BASE_DIR / "post_app" / "templates",
             BASE_DIR / "home_app" / "templates",
-            BASE_DIR / "user_app" / "templates"
+            BASE_DIR / "user_app" / "templates",
+            BASE_DIR / "chat_app" / "templates",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
