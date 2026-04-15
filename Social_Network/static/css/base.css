@@ -79,7 +79,7 @@ main {
     display: flex;
     justify-content: center;
 
-    height: calc(100vh - 8vh); 
+    height: 92vh; 
 }
 
 
