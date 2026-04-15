@@ -22,5 +22,5 @@ urlpatterns = [
     path('', include('home_app.urls')),
     path('posts/', include('post_app.urls')),
     path('friends/', include('friends_app.urls')),
-    path('settings/', include('user_app.urls')),
+    path('user/settings/', include('user_app.urls')),
 ]

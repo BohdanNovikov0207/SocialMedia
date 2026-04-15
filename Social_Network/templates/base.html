@@ -3,55 +3,53 @@
 <!DOCTYPE html><html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>World IT</title>
-
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World IT</title><link rel="stylesheet" href="{% static 'css/base.css' %}">
 
 </head><body><header>
-    <div class="header-container">    <!-- LOGO -->
+    <div class="header-container">    
     <div class="header-container-logo">
-        <img src="{% static 'images/logo.png' %}" alt="logo">
+        <img src="{% static 'images/logo.png' %}">
     </div>
 
-    <!-- NAV -->
+    
     <nav class="header-container-nav">
 
-        <div class="inner-container-nav">
-            <img src="{% static 'images/home.png' %}" alt="">
-            <a href="{% url 'home' %}">Головна</a>
-        </div>
+        <a class="nav-item" href="{% url 'home' %}">
+            <img src="{% static 'images/home.png' %}">
+            <span>Головна</span>
+        </a>
 
-        <div class="inner-container-nav">
-            <img src="{% static 'images/post.png' %}" alt="">
-            <a href="{% url 'posts' %}">Мої публікації</a>
-        </div>
+        <a class="nav-item" href="{% url 'posts' %}">
+            <img src="{% static 'images/post.png' %}">
+            <span>Мої публікації</span>
+        </a>
 
-        <div class="inner-container-nav">
-            <img src="{% static 'images/people.png' %}" alt="">
-            <a href="{% url 'friends' %}">Друзі</a>
-        </div>
+        <a class="nav-item" href="{% url 'friends' %}">
+            <img src="{% static 'images/people.png' %}">
+            <span>Друзі</span>
+        </a>
 
-        <div class="inner-container-nav">
-            <img src="{% static 'images/settings.png' %}" alt="">
-            <a href="{% url 'settings' %}">Налаштування</a>
-        </div>
+        <a class="nav-item" href="{% url 'settings' %}">
+            <img src="{% static 'images/settings.png' %}">
+            <span>Налаштування</span>
+        </a>
 
-        <div class="inner-container-nav">
-            <img src="{% static 'images/exit.png' %}" alt="">
-            <a class="logout" href="#">Вихід</a>
-        </div>
+        <a class="nav-item logout" href="#">
+            <img src="{% static 'images/exit.png' %}">
+            <span>Вихід</span>
+        </a>
 
     </nav>
 
 </div>
 
 </header><main>
-    <div class="main-container"><div class="content">
-        {% block content %}
-        {% endblock %}
+    <div class="main-container">
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
-
-</div>
-
 </main></body>
 </html>
