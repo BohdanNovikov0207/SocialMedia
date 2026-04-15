@@ -14,13 +14,15 @@ header {
     height: 8vh;
     background: #ffffff;
     border-bottom: 0.1vh solid #ddd;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .header-container {
-    width: 1440px;
+    width: 80vw;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,11 +42,12 @@ header {
     display: flex;
     align-items: center;
     gap: 0.5vw;
-    padding: 0.7vh 1vw;
+
+    padding: 1vh 1.2vw;
+
     border-radius: 1vh;
     text-decoration: none;
     color: #222;
-    transition: 0.2s;
 }
 
 .nav-item img {
@@ -53,50 +56,41 @@ header {
 
 .nav-item:hover {
     background: #f0f0f0;
-    border: 0.1vh solid #ccc;
 }
 
-.nav-item.active {
-    background: #eaeaea;
-    border: 0.1vh solid #bbb;
-}
-
-.logout {
-    border: 0.15vh solid #999;
-    border-radius: 3vh;
-}
-
-.logout img {
-    height: 2vh;
-}
-
+/* MAIN */
 main {
     display: flex;
     justify-content: center;
 }
 
+/* КОНТЕЙНЕР */
 .main-container {
-    width: 1440px;
+    width: 80vw;
     margin-top: 2vh;
+
     display: flex;
     gap: 2vw;
     align-items: flex-start;
 }
 
+/* БОКОВАЯ ПАНЕЛЬ */
 .bottom-panel {
-    width: 250px;
+    width: 18vw;
     min-height: 60vh;
+
     background: #ffffff;
     border: 0.1vh solid #ddd;
     border-radius: 1vh;
-    padding: 1vh;
 }
 
+/* КОНТЕНТ */
 .content {
     flex: 1;
+
     background: #ffffff;
     border: 0.1vh solid #ddd;
     border-radius: 1vh;
+
     min-height: 90vh;
-    padding: 2vh;
 }
