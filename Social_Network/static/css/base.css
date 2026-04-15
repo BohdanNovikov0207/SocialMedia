@@ -23,7 +23,6 @@ header {
     align-items: center;
 }
 
-
 .header-container {
     width: 70vw;
 
@@ -32,12 +31,11 @@ header {
     align-items: center;
 }
 
-
 .header-container-logo img {
     height: 3vh;
 }
 
-
+/* ===== NAV ===== */
 .header-container-nav {
     display: flex;
     align-items: center;
@@ -67,6 +65,13 @@ header {
 
 .nav-item:hover {
     background: #f0f0f0;
+    border: 0.1vh solid #ccc;
+}
+
+/* ===== ACTIVE ===== */
+.nav-item.active {
+    background: #eaeaea;
+    border: 0.1vh solid #bbb;
 }
 
 
@@ -82,26 +87,39 @@ header {
 
 main {
     display: flex;
+    justify-content: center;
+}
+
+
+.main-container {
+    width: 70vw;
+    margin-top: 2vh;
+
+    display: flex;
+    gap: 2vw;
+    align-items: flex-start;
 }
 
 
 .bottom-panel {
     width: 15vw;
-    height: 100vh;
+    min-height: 60vh;
 
-    background: #e5e5e5;
+    background: #ffffff;
+    border: 0.1vh solid #ddd;
+    border-radius: 1vh;
+
+    padding: 1vh;
 }
 
 
 .content {
     flex: 1;
 
-    display: flex;
-    justify-content: center;
-}
+    background: #ffffff;
+    border: 0.1vh solid #ddd;
+    border-radius: 1vh;
 
-
-.content > * {
-    width: 70vw;
-    margin-top: 2vh;
+    min-height: 60vh;
+    padding: 2vh;
 }
