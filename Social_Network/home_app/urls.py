@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from .views import HomeView
 
+app_name = 'MainPage'
+
 urlpatterns = [
-    path(route='', view=HomeView.as_view(), name="MainPage")
-    
+    path('', HomeView.as_view(), name='home_app')
 ]

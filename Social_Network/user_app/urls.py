@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import UserView
 
+app_name = 'user_app'
+
 urlpatterns = [
-    path(route='user/settings', view=UserView.as_view(), name="UserPage")
+    path('settings/', UserView.as_view(), name='settings_app')
 ]

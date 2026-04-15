@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import FriendsView
 
+app_name = 'FriendsPage'
+
 urlpatterns = [
-    path(route='friends', view=FriendsView.as_view(), name="FriendsPage")
+    path('', FriendsView.as_view(), name='friends_app')
 ]

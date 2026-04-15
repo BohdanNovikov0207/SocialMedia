@@ -1,72 +1,74 @@
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     font-family: Arial, sans-serif;
 }
 
 header {
-    width: 100%;
-    height: 8vh;
-    background: white;
-    border-bottom: 1px solid #ddd;
-
     display: flex;
     justify-content: center;
-    align-items: center;
+    background: #fff;
+    border-bottom: 0.05rem solid #ddd;
 }
 
 .header-container {
-    width: 70vw;
+    width: 100%;
+    max-width: 75rem;
+    margin: 0 auto;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+
+    padding: 0.6rem 1rem;
 }
 
 .header-container-logo img {
-    height: 2.5vh;
+    height: 1.6rem;
 }
 
-.header-container-nav nav {
+.header-container-nav {
     display: flex;
     align-items: center;
-    gap: 0.8vw; 
+    gap: 0.6rem;
 }
 
 .inner-container-nav {
     display: flex;
     align-items: center;
-    gap: 0.6vw; 
-}
+    gap: 0.4rem;
 
-.inner-container-nav img {
-    height: 2.2vh;
+    padding: 0.4em 0.8em;
+    border-radius: 0.6em;
+
+    transition: 0.2s ease;
 }
 
 .inner-container-nav a {
-    display: flex;
-    align-items: center;
-    gap: 0.4em; 
-    padding: 0.35em 0.7em; 
-    border-radius: 0.6em;
     text-decoration: none;
     color: #333;
-    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    line-height: 1;
 }
 
-.inner-container-nav a:hover {
+.inner-container-nav img {
+    height: 1.1em;
+    display: block;
+}
+
+.inner-container-nav:hover {
     background-color: #d81b60;
-    color: white;
 }
 
+.inner-container-nav:hover a {
+    color: #fff;
+}
 .logout {
-    border: 1px solid #d81b60;
-    border-radius: 1.5em;
-    padding: 0.35em 0.9em;
+    border: 0.08rem solid #d81b60;
+    border-radius: 2em;
+    padding: 0.2em 0.6em;
+
     color: #d81b60;
 }
 
-.logout:hover {
-    background-color: #d81b60;
-    color: white;
+.inner-container-nav:hover .logout {
+    color: #fff;
 }
