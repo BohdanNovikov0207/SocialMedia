@@ -9,3 +9,8 @@ class SettingsView(TemplateView):
 
 class LogoutView(TemplateView):
     template_name = "user_app/logout.html"
+    
+class AuthView(TemplateView):
+    template_name = "user_app/auth.html"  
+    
+    

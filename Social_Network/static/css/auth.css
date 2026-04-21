@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    overflow: hidden;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    min-height: 1024px; 
+    min-width: 1440px;
+    background-color: #FAF8FF;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88px;
+    width: 100vw;
+    background-color: #FFFFFF;
+}
+
+.logo img{
+    display: flex;
+    align-items: center;
+    width: 145px;
+    height: 18px;
+}
+
+/*картинка и главное*/
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #E9E5EE;/*#E9E5EE*/
+}
+
+.content{
+    display: flex;
+    height: 552px;
+    width: 1088.47px;
+
+
+}
+/**/
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 487px;
+    height: 552px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    z-index: 2;
+}
+.laptop img{
+    width: 679px;
+    height: 527px;
+    z-index: 3;
+}
+
+.laptop{
+    display: flex;
+    position: relative;
+    z-index: 1;
+    right: 75px;
+}
+/**
+.email{
+    width: 399px;
+    height: 66px;
+    gap: 6px;
+    overflow: vertical;
+    background-color: violet;
+}
+.password{
+    width: 399px;
+    height: 66px;
+    gap: 6px;
+    overflow: vertical;
+    background-color: rgb(98, 255, 166);
+}
+.input-all{
+    width: 399px;
+    height: 464px;
+    flex-direction: column;
+}
+
+**\
