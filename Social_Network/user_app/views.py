@@ -3,5 +3,9 @@ from django.views.generic.base import TemplateView
 
 # Create your views here.
 
-class UserView(TemplateView):
-    template_name = "user_app/user.html"
+class SettingsView(TemplateView):
+    template_name = "user_app/settings.html"
+
+
+class LogoutView(TemplateView):
+    template_name = "user_app/logout.html"

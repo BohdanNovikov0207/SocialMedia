@@ -1,0 +1,31 @@
+{% load static %}
+<div class="header-container">
+    <div class="header-container-logo">
+        <img src="{% static 'images/logo.png' %}" alt="">
+    </div>
+    <div class="nav">
+        <nav class="nav-pages">
+            <a class="inner-container-nav" href="{% url 'MainPage' %}">
+                <img src="{% static 'images/home.png' %}" alt="">
+                <span>Головна</span>
+            </a>
+            <a class="inner-container-nav" href="{% url 'PostPage' %}">
+                <img src="{% static 'images/post.png' %}" alt="">
+                <span>Мої публікації</span>
+            </a>
+            <a class="inner-container-nav" href="{% url 'FriendsPage' %}">
+                <img src="{% static 'images/people.png' %}" alt="">
+                <span>Друзі</span>
+            </a>
+            <a class="inner-container-nav">
+                <img src="{% static 'images/chat.png' %}" alt="">
+                <span>Чати</span>
+            </a>
+            <a class="inner-container-nav" href="{% url 'SettingsPage' %}">
+                <img src="{% static 'images/settings.png' %}" alt="">
+                <span>Налаштування</span>
+            </a>
+        </nav>
+        <a href="{% url 'LogoutPage' %}"><img class="exit-button" src="{% static 'images/exit.png' %}" alt=""></a>
+    </div>
+</div>
