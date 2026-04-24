@@ -1,0 +1,142 @@
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+    height: 271px;
+    background-color: aqua;
+    border-radius: 20px;
+    gap: 16px;
+}
+.information{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 350px;
+    height: 55px;
+    background-color: #000000;
+}
+
+.posts{
+    display: flex;
+    align-items: center;
+    width: 116px;
+    height: 48px;
+    border-right: 1px gray;
+    background-color: blueviolet;
+}
+
+.readers{
+    display: flex;
+    align-items: center;
+    width: 116px;
+    height: 48px;
+    border-right: 1px gray;
+    background-color: rgb(241, 54, 241);
+}
+
+.friends{
+    display: flex;
+    align-items: center;
+    width: 116px;
+    height: 48px;
+    background-color: plum;
+}
+
+
+.lina-pfp img{
+    display: flex;
+    align-items: center;
+    width: 96px;
+    height: 96px;
+}
+
+.nickname{
+    gap: 10px;
+}
+
+.requests{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 249px;
+    background-color: rgb(9, 255, 0);
+    border-radius: 20px;
+}
+
+.request{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 318px;
+    height: 23px;
+    background-color: blue;
+}
+
+.people{
+    width: 318px;
+    height: 170px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pers1{
+    width: 318px;
+    height: 46px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: chocolate;
+}
+.pers2{
+    width: 318px;
+    height: 46px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: aquamarine;
+}
+.pers3{
+    width: 318px;
+    height: 46px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: yellow;
+}
+.messages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 265px;
+    background-color: rgb(255, 106, 0);
+    border-radius: 20px;
+}
+
+.message{
+    width: 318px;
+    height: 23px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.people1{
+    width: 350px;
+    height: 186px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -3,6 +3,7 @@
     <div class="header-container-logo">
         <img src="{% static 'images/logo.png' %}" alt="">
     </div>
+    {% if request.path != "/user/auth" %}
     <div class="nav">
         <nav class="nav-pages">
             <a class="inner-container-nav" href="{% url 'MainPage' %}">
@@ -28,4 +29,5 @@
         </nav>
         <a href="{% url 'LogoutPage' %}"><img class="exit-button" src="{% static 'images/exit.png' %}" alt=""></a>
     </div>
+    {% endif %}
 </div>

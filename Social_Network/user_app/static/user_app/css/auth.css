@@ -7,11 +7,9 @@
 body{
     display: flex;
     overflow: hidden;
-    justify-content: start;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    min-height: 1024px; 
-    min-width: 1440px;
     background-color: #FAF8FF;
 }
 
@@ -19,36 +17,39 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 88px;
     width: 100vw;
+    height: 88px;
     background-color: #FFFFFF;
 }
 
-.logo img{
+.header-container-logo{
     display: flex;
-    align-items: center;
+    min-width: 145px;
+    min-height: 18px;
+}
+
+.header-container-logo img{
+    display: flex;
     width: 145px;
     height: 18px;
 }
 
-/*картинка и главное*/
 
 main{
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
+    width: 100vw;
     background-color: #E9E5EE;/*#E9E5EE*/
 }
 
 .content{
     display: flex;
-    height: 552px;
-    width: 1088.47px;
-
-
+    justify-content: center;
+    align-items: center;
+    min-height: 552px;
+    min-width: 1088.47px;
 }
 /**/
 
@@ -62,11 +63,6 @@ main{
     border-radius: 20px;
     z-index: 2;
 }
-.laptop img{
-    width: 679px;
-    height: 527px;
-    z-index: 3;
-}
 
 .laptop{
     display: flex;
@@ -74,6 +70,13 @@ main{
     z-index: 1;
     right: 75px;
 }
+
+.laptop img{
+    width: 679px;
+    height: 527px;
+    z-index: 3;
+}
+
 /**
 .email{
     width: 399px;

@@ -6,16 +6,20 @@
         {% block meta %}{% endblock %}
         <title>{% block title %}{% endblock %}</title>
         {% block links %}{% endblock %}
+        
     </head>
     <body>
         <header>{% include "header.html" %}</header>
         <main>
+            {% if request.path != "/user/auth" %}
             <div class="side-panel">
-                {% block bottom-panel %}{% endblock %}
+                {% block side-panel %}{% endblock %}
             </div>
-            <div class="content">
-                {% block content %}{% endblock %}
+            <div class="content-panel">
+                {% block content-panel %}{% endblock %}
             </div>
+            {% endif %}
+            {% block content %}{% endblock %}
         </main>
         {% block scripts %}{% endblock %}
     </body>

@@ -90,7 +90,7 @@ header{
     cursor: pointer;
 }
 
-.content{
+.content-panel{
     display: flex;
     height: 100vh;
     width: 923px;
@@ -101,7 +101,8 @@ header{
     display: flex;
     width: 350.87px;
     height: 100vh;
-    background-color: #FFFFFF;
+    flex-direction: column;
+    gap:10px;
 }
 
 main{

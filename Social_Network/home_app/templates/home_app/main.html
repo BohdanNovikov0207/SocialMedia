@@ -3,4 +3,39 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'home_app/css/side.css' %}">
+{% endblock %}
+
+{% block side-panel %}
+<div class="profile">
+     <div class = 'lina-pfp'>
+        <img src="{% static 'home_app/images/pfp.png' %}">
+    </div>
+    <div class="nickname">
+        <span>Lina Li</span>
+        <span>@thelili</span>
+    </div>
+    <div class="information">                     
+        <div class="posts">Пости</div>
+        <div class="readers">Читачі</div>
+        <div class="friends">Друзі</div>
+    </div>                       
+</div>
+<div class="requests">
+    <div class="request"></div>
+    <div class="people">
+        <div class="pers1"></div>
+        <div class="pers2"></div>
+        <div class="pers3"></div>
+    </div>
+    
+</div>
+<div class="messages">
+    <div class="message"></div>
+    <div class="people1">
+        <div class="pers4"></div>
+        <div class="pers5"></div>
+        <div class="pers6"></div>
+    </div>
+</div>
 {% endblock %}

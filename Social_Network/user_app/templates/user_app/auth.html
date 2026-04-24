@@ -1,31 +1,24 @@
+{% extends "base.html" %}
 {% load static %}
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="csrf-token" content="{{ csrf_token }}">
-        <title>Document</title>
-        <link rel="stylesheet" href="{% static 'css/auth.css' %}">
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <img src="{% static 'images/logo.png' %}" alt="Logo">
-            </div>
-        </header>
-        <main>
-            <div class="content">
-                <div class="input-container">
-                    <!-- <input type="text" placeholder="you@example.com">
-                    <input type="password" placeholder="Введи пароль">
-                    <input type="password" placeholder="Повтори пароль">
-                    <button type="submit">Створити аккаунт</button> -->
-                </div>
-                <div class="laptop">
-                    <img src="{% static 'images/laptop.png' %}" alt="laptop">
-                </div>
-            </div>
-        </main>
-        <script src=""></script>
-    </body>
-</html>
+{% block meta %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+{% endblock %}
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'user_app/css/auth.css' %}">
+{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+<div class="content">
+    <div class="input-container">
+        <!-- <input type="text" placeholder="you@example.com">
+        <input type="password" placeholder="Введи пароль">
+        <input type="password" placeholder="Повтори пароль">
+        <button type="submit">Створити аккаунт</button> -->
+    </div>
+    <div class="laptop">
+        <img src="{% static 'images/laptop.png' %}" alt="laptop">
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}{% endblock %}
