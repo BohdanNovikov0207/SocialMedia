@@ -12,10 +12,10 @@
         <header>{% include "header.html" %}</header>
         <main>
             {% if request.path != "/user/auth" %}
-            <div class="side-panel">
+            <div class="side-panel" >
                 {% block side-panel %}{% endblock %}
             </div>
-            <div class="content-panel">
+            <div class="content-panel" >
                 {% block content-panel %}{% endblock %}
             </div>
             {% endif %}

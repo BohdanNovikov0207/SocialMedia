@@ -1,11 +1,11 @@
-<div class="form_login" style="display: none;">
-    <div>
-        <span>Реєстрація</span>
-        <span>Авторизація</span>
-    </div>
-    <p>Раді тебе знову бачити!</p>
-    <form action="" method="post">
-        {{ form_confirm.as_p }}
-        <button type="submit">Увійти</button>
+<div class="form_login auth-form">
+    <nav>
+        <p id="register" class="bold-text">Реєстрація</p>
+        <p class="bold-text">Авторизація</p>
+    </nav>
+    <p class="bold-text">Раді тебе знову бачити!</p>
+    <form action="{% url 'LoginForm' %}" method="post">
+        {{ form_login.as_p }}
+        <button id="submit-button" type="submit">Увійти</button>
     </form>
 </div>

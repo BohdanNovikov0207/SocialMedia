@@ -3,39 +3,150 @@
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'home_app/css/side.css' %}">
+    <link rel="stylesheet" href="{% static 'home_app/css/side.css' %}"> 
 {% endblock %}
 
 {% block side-panel %}
+<!-- Профиль -->
 <div class="profile">
-     <div class = 'lina-pfp'>
-        <img src="{% static 'home_app/images/pfp.png' %}">
+    <div class="prof-info">
+        <div class = 'lina-pfp'>
+            <img src="{% static 'home_app/images/pfp.png' %}">
+        </div>
+        <div class="nickname">
+            <span class="bold-text">Lina Li</span>
+            <span class="bold-text">@thelili</span>
+        </div>
     </div>
-    <div class="nickname">
-        <span>Lina Li</span>
-        <span>@thelili</span>
+    <div class="information">
+        <div class="posts">
+            <span class="bold-text">566</span>
+            <span>Дописи</span>
+        </div>
+        <div class="readers">
+            <span class="bold-text">12.1к</span>
+            <span>Читачі</span>
+        </div>
+        <div class="friends">
+            <span class="bold-text" >222</span>
+            <span>Друзі</span>
+        </div>
     </div>
-    <div class="information">                     
-        <div class="posts">Пости</div>
-        <div class="readers">Читачі</div>
-        <div class="friends">Друзі</div>
-    </div>                       
 </div>
+
+<!-- Запросы  -->
 <div class="requests">
-    <div class="request"></div>
+    <div class="request">
+        <div class="req1">
+            <div class="gray">
+                <img src="{% static 'home_app/images/people_gray.png' %}">
+            </div>
+            <span>Запити</span>
+            
+        </div>
+        <span>Дивитись всі</span>
+    </div>
     <div class="people">
-        <div class="pers1"></div>
-        <div class="pers2"></div>
-        <div class="pers3"></div>
-    </div>
-    
+        <div class="pers">
+            <div class="in-per">
+                <div class="avat">
+                    <img src="{% static 'home_app/images/avatar1.png' %}">
+                </div>
+                <div class="text">
+                    <span class="bold-text">Yehor Aung</span>
+                    <span>4.3к підписників</span>
+                </div>
+              
+            </div>
+        </div>
+        <div class="pers">
+            <div class="in-per">
+                <div class="avat">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>  
+                <div class="text"> 
+                    <span class="bold-text">Ann Ann</span>
+                    <span>1.6к підписників</span>
+                    
+                </div>
+            </div>    
+        </div>
+        <div class="pers">
+            <div class="in-per">
+                <div class="avat">
+                    <img src="{% static 'home_app/images/avatar3.png' %}">
+                </div>
+                <div class="text">
+                    <span class="bold-text">Yeungen Jenua</span>
+                    <span>10.3к підписників</span>
+                </div>
+            </div>
+        </div>
+    </div>   
 </div>
-<div class="messages">
-    <div class="message"></div>
-    <div class="people1">
-        <div class="pers4"></div>
-        <div class="pers5"></div>
-        <div class="pers6"></div>
+<!-- Сообщения -->
+<div class="notifications">
+    <div class="notification">
+        <div class="req1">
+            <div class="gray">
+                <img src="{% static 'home_app/images/alert.png' %}">
+            </div>
+            <span>Повідомлення</span>
+        </div>
+        <span>Дивитись всі</span>
     </div>
+    <div class="people">
+        <div class="pers">
+            <div class="in-per">
+                <div class="avat">
+                    <img src="{% static 'home_app/images/avatar4.png' %}">
+                </div>
+                <div class="textall">
+                    <div class="text1">
+                        <span class="bold-text">Mona Lisa</span>
+                        <span>9:41</span>
+                    </div>
+                    <div class="textelse">
+                        <span>Привіт! Як справи?</span>
+                    </div>    
+                    
+                </div>
+              
+            </div>
+        </div>
+        <div class="pers">
+            <div class="in-per">
+                <div class="avat">
+                    <img src="{% static 'home_app/images/avatar5.png' %}">
+                </div>  
+                <div class="textall">
+                    <div class="text1">
+                        <span class="bold-text">Ann Ti</span>
+                        <span>25.04.2025</span>
+                    </div>
+                    <div class="textelse">
+                        <span>Привіт!</span>
+                    </div>    
+                    
+                </div>
+            </div>    
+        </div>
+        <div class="pers">
+            <div class="in-per">
+                <div class="avat">
+                    <img src="{% static 'home_app/images/avatar6.png' %}">
+                </div>
+                <div class="textall">
+                    <div class="text1">
+                        <span class="bold-text">Ness Ty</span>
+                        <span>25.04.2025</span>
+                    </div>
+                    <div class="textelse">
+                        <span>Привіт!</span>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>   
 </div>
 {% endblock %}

@@ -5,47 +5,61 @@
     flex-direction: column;
     width: 350px;
     height: 271px;
-    background-color: aqua;
+    background-color:  rgb(255, 255, 255);
     border-radius: 20px;
+    border: 1px #CDCED2 solid;
     gap: 16px;
 }
+
 .information{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: row;
     width: 350px;
     height: 55px;
-    background-color: #000000;
 }
 
 .posts{
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 7px;
     width: 116px;
     height: 48px;
-    border-right: 1px gray;
-    background-color: blueviolet;
+    border-right: 1px rgb(68, 68, 68);
 }
 
 .readers{
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 116px;
     height: 48px;
-    border-right: 1px gray;
-    background-color: rgb(241, 54, 241);
+    border-left: 1px #81818D solid;
+    border-right: 1px #81818D solid;
 }
 
 .friends{
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 116px;
     height: 48px;
-    background-color: plum;
 }
 
-
+.prof-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+    height: 175px;
+    gap:24px;
+}
 .lina-pfp img{
     display: flex;
     align-items: center;
@@ -55,88 +69,127 @@
 
 .nickname{
     gap: 10px;
+    width: 350px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
+/** Запити **/
 
 .requests{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 350px;
     height: 249px;
-    background-color: rgb(9, 255, 0);
+    gap:24px; 
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
 }
 
 .request{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: space-between;
     flex-direction: row;
     width: 318px;
     height: 23px;
-    background-color: blue;
+}
+
+.req1{
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    width: 94px;
+    height: 23px;
+}
+.gray img{
+    width: 25px;
+    height: 20px;
 }
 
 .people{
-    width: 318px;
-    height: 170px ;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    width: 318px;
+    height: 170px;
+    gap:16px;
 }
 
-.pers1{
+.pers{
+    display: flex;
+    justify-content: column;
     width: 318px;
-    height: 46px ;
+    height: 46px;
+}
+.in-per{
+    display: flex;
+    flex-direction: start;
+    justify-content: column;
+    width: 318px;
+    height: 46px;
+    gap:12px;
+}
+
+.avat img{
+    display: start;
+    width: 46px;
+    height: 46px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 18px;
+    gap:8px;
+}
+
+.textall{
+    width: 260px;
+    height: 44px;
+    flex-direction: column;
+    display: flex;
+    justify-content: column;
+    align-items: start;
+    gap: 6px;
+}
+.text1{
+    display: flex;
+    justify-content: space-between;
+    width: 260px;
+    height: 18px;
+}
+.textelse{
+    display:flex;
+    flex-direction: column;
+    width: 200px;
+    height: 22px;
+}
+
+/** Уведомления **/
+
+.notifications{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: chocolate;
-}
-.pers2{
-    width: 318px;
-    height: 46px ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: aquamarine;
-}
-.pers3{
-    width: 318px;
-    height: 46px ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: yellow;
-}
-.messages{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 350px;
-    height: 265px;
-    background-color: rgb(255, 106, 0);
+    height: 249px;
+    gap:24px; 
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
 }
 
-.message{
-    width: 318px;
-    height: 23px ;
+.notification{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: space-between;
     flex-direction: row;
-}
-
-.people1{
-    width: 350px;
-    height: 186px ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    width: 318px;
+    height: 23px;
 }

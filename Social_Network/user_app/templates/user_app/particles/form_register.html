@@ -1,12 +1,12 @@
-<div class="form_register">
-    <div>
-        <span>Реєстрація</span>
-        <span>Авторизація</span>
-    </div>
-    <p>Приєднуйся до нас!</p>
-    <form action="" method="post">
-        {{ form_confirm.as_p }}
-        <button type="submit">Підтвердити</button>
+<div class="form_register auth-form">
+    <nav>
+        <p class="bold-text">Реєстрація</p>
+        <p id="login" class="bold-text" >Авторизація</p>
+    </nav>
+    <p class="bold-text">Приєднуйся до нас!</p>
+    <form id="register-form" action="{% url 'RegisterForm' %}" method="post">
+        {{ form_register.as_p }}
+        <button id="submit-button" type="submit">Створити акаунт</button>
     </form>
-
+    <div id="register-errors"></div>
 </div>

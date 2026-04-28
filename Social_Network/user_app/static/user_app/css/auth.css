@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("GTWalsheimProBold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.bold-text {
+  font-family: "GT Walsheim Pro", sans-serif;
+  font-weight: 700;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,6 +17,7 @@
 }
 
 body{
+    font-family: "GT Walsheim Pro", sans-serif;
     display: flex;
     overflow: hidden;
     justify-content: center;
@@ -34,7 +47,6 @@ header{
     height: 18px;
 }
 
-
 main{
     display: flex;
     justify-content: center;
@@ -52,9 +64,56 @@ main{
     min-width: 1088.47px;
 }
 /**/
-
-.input-container{
+.form_register, .auth-form{
     display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+/*#register-form{
+    gap: 16px;
+} */
+
+input{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 6px;
+    text-indent: 15px;
+    /* margin-bottom: 10px; */
+    border-radius: 10px;
+    width: 399px;
+    /* width: 399px; */
+    height: 42px;
+    /* line-height: 50px; */
+    /* padding: 12px 15px; */
+    gap: 20px;
+}
+
+#submit-button{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #543C52;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    width: 399px;
+    max-width: 400px;
+    height: 42px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 1234px;
+    gap: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth-form{
     flex-direction: column;
     gap: 36px;
     width: 487px;
@@ -63,6 +122,24 @@ main{
     border-radius: 20px;
     z-index: 2;
 }
+.auth-form nav, .form_register nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    /* border-bottom: 2px solid #543C52 */
+}
+.auth-form nav p, .form_register nav p{
+    border-bottom: 3px solid #543C52;
+    margin: 0;
+    cursor: pointer;
+}
+
+.form_register{
+    flex-direction: column;
+}
+
 
 .laptop{
     display: flex;
@@ -76,26 +153,3 @@ main{
     height: 527px;
     z-index: 3;
 }
-
-/**
-.email{
-    width: 399px;
-    height: 66px;
-    gap: 6px;
-    overflow: vertical;
-    background-color: violet;
-}
-.password{
-    width: 399px;
-    height: 66px;
-    gap: 6px;
-    overflow: vertical;
-    background-color: rgb(98, 255, 166);
-}
-.input-all{
-    width: 399px;
-    height: 464px;
-    flex-direction: column;
-}
-
-**\
