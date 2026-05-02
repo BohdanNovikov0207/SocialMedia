@@ -4,6 +4,8 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/side.css' %}"> 
+    <link rel="stylesheet" href="{% static 'home_app/css/chat_input.css' %}">
+    <link rel="stylesheet" href="{% static 'home_app/css/additional.css' %}">
 {% endblock %}
 
 {% block side-panel %}
@@ -21,15 +23,15 @@
     <div class="information">
         <div class="posts">
             <span class="bold-text">566</span>
-            <span>Дописи</span>
+            <span class="gray-color">Дописи</span>
         </div>
         <div class="readers">
             <span class="bold-text">12.1к</span>
-            <span>Читачі</span>
+            <span class="gray-color">Читачі</span>
         </div>
         <div class="friends">
             <span class="bold-text" >222</span>
-            <span>Друзі</span>
+            <span class="gray-color">Друзі</span>
         </div>
     </div>
 </div>
@@ -41,10 +43,9 @@
             <div class="gray">
                 <img src="{% static 'home_app/images/people_gray.png' %}">
             </div>
-            <span>Запити</span>
-            
+            <span class="bold-text">Запити</span>
         </div>
-        <span>Дивитись всі</span>
+        <span class="violet">Дивитись всі</span>
     </div>
     <div class="people">
         <div class="pers">
@@ -54,7 +55,7 @@
                 </div>
                 <div class="text">
                     <span class="bold-text">Yehor Aung</span>
-                    <span>4.3к підписників</span>
+                    <span class="gray-color">4.3к підписників</span>
                 </div>
               
             </div>
@@ -66,7 +67,7 @@
                 </div>  
                 <div class="text"> 
                     <span class="bold-text">Ann Ann</span>
-                    <span>1.6к підписників</span>
+                    <span class="gray-color">1.6к підписників</span>
                     
                 </div>
             </div>    
@@ -78,7 +79,7 @@
                 </div>
                 <div class="text">
                     <span class="bold-text">Yeungen Jenua</span>
-                    <span>10.3к підписників</span>
+                    <span class="gray-color">10.3к підписників</span>
                 </div>
             </div>
         </div>
@@ -91,9 +92,9 @@
             <div class="gray">
                 <img src="{% static 'home_app/images/alert.png' %}">
             </div>
-            <span>Повідомлення</span>
+            <span class="bold-text">Повідомлення</span>
         </div>
-        <span>Дивитись всі</span>
+        <span class="violet">Дивитись всі</span>
     </div>
     <div class="people">
         <div class="pers">
@@ -104,7 +105,7 @@
                 <div class="textall">
                     <div class="text1">
                         <span class="bold-text">Mona Lisa</span>
-                        <span>9:41</span>
+                        <span class="gray-color">9:41</span>
                     </div>
                     <div class="textelse">
                         <span>Привіт! Як справи?</span>
@@ -122,7 +123,7 @@
                 <div class="textall">
                     <div class="text1">
                         <span class="bold-text">Ann Ti</span>
-                        <span>25.04.2025</span>
+                        <span class="gray-color">25.04.2025</span>
                     </div>
                     <div class="textelse">
                         <span>Привіт!</span>
@@ -139,7 +140,7 @@
                 <div class="textall">
                     <div class="text1">
                         <span class="bold-text">Ness Ty</span>
-                        <span>25.04.2025</span>
+                        <span class="gray-color">25.04.2025</span>
                     </div>
                     <div class="textelse">
                         <span>Привіт!</span>
@@ -149,4 +150,9 @@
         </div>
     </div>   
 </div>
+{% endblock %}
+
+{% block content-panel %}
+{% include "home_app/chat_input.html" %}
+{% include "home_app/additional.html" %}
 {% endblock %}

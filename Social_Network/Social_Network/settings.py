@@ -132,10 +132,17 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "home_app" / "static" / "home_app",
-    BASE_DIR / "user_app" / "static" / "user_app"
+    BASE_DIR / "user_app" / "static" / "user_app",
+    BASE_DIR / "post_app" / "static" / "post_app"
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "bogdanblacktop@gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = "juog fryc czyd rptw"

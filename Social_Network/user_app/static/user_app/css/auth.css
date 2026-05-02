@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "GT Walsheim Pro";
-  src: url("GTWalsheimProBold.woff") format("woff");
-  font-weight: 700;
+  font-family: GT Walsheim Pro;
+  src: url("../../fonts/GTWalsheimProRegular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
 .bold-text {
-  font-family: "GT Walsheim Pro", sans-serif;
+  font-family: GT Walsheim Pro;
   font-weight: 700;
 }
 
@@ -14,10 +14,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: GT Walsheim Pro;
 }
 
 body{
-    font-family: "GT Walsheim Pro", sans-serif;
     display: flex;
     overflow: hidden;
     justify-content: center;
@@ -64,17 +64,64 @@ main{
     min-width: 1088.47px;
 }
 /**/
-.form_register, .auth-form{
+.auth-form{
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* gap: 20px; */
+    gap: 36px;
+    width: 487px;
+    height: 552px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    z-index: 2;
 }
 
-/*#register-form{
+.form_login{
+    display: none;
+}
+.form_confirm{
+    display: none;
+    width: 488px;
+    height: 444px;
+}
+
+.auth-form nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    font-size: 34px;
+}
+
+.auth-form nav p{
+    cursor: pointer;
+}
+
+.instructions-confirm{
+    width: 400px;
+    height: 54px;
+    text-align: center;
+}
+
+.heading{
+    font-size: 24px;
+}
+.heading-confirm{
+    font-size: 34px;
+}
+
+.auth-form form {
+    display: flex;
+    flex-direction: column;
     gap: 16px;
-} */
+}
+
+.auth-form form p label{
+    color: #070A1C;
+}
+
 
 input{
     display: block;
@@ -82,16 +129,30 @@ input{
     align-items: center;
     box-sizing: border-box;
     border-radius: 10px;
-    margin-top: 6px;
     text-indent: 15px;
-    /* margin-bottom: 10px; */
-    border-radius: 10px;
+    margin-top: 6px;
     width: 399px;
-    /* width: 399px; */
     height: 42px;
-    /* line-height: 50px; */
-    /* padding: 12px 15px; */
     gap: 20px;
+    font-size: 16px;
+    border-style: solid;
+    border-color: #CDCED2;
+}
+
+.form_confirm input{
+    width: 50px;
+    height: 45px;
+}
+.form_confirm form p{
+    display: flex;
+    justify-content: start;
+}
+
+.row-inputs{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
 }
 
 #submit-button{
@@ -112,34 +173,11 @@ input{
     font-size: 16px;
     cursor: pointer;
 }
-
-.auth-form{
-    flex-direction: column;
-    gap: 36px;
-    width: 487px;
-    height: 552px;
-    background-color: #FFFFFF;
-    border-radius: 20px;
-    z-index: 2;
-}
-.auth-form nav, .form_register nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2vw;
-    /* border-bottom: 2px solid #543C52 */
-}
-.auth-form nav p, .form_register nav p{
-    border-bottom: 3px solid #543C52;
-    margin: 0;
+#back{
+    color: #543C52;
+    font-size: 16px;
     cursor: pointer;
 }
-
-.form_register{
-    flex-direction: column;
-}
-
 
 .laptop{
     display: flex;

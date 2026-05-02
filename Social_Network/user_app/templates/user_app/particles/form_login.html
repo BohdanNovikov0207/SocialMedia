@@ -3,8 +3,8 @@
         <p id="register" class="bold-text">Реєстрація</p>
         <p class="bold-text">Авторизація</p>
     </nav>
-    <p class="bold-text">Раді тебе знову бачити!</p>
-    <form action="{% url 'LoginForm' %}" method="post">
+    <p class="bold-text heading">Раді тебе знову бачити!</p>
+    <form id="login-form" action="{% url 'LoginForm' %}" method="post">
         {{ form_login.as_p }}
         <button id="submit-button" type="submit">Увійти</button>
     </form>

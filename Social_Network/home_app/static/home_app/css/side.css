@@ -106,6 +106,7 @@
     flex-direction: row;
     width: 94px;
     height: 23px;
+    color: #81818D; 
 }
 .gray img{
     width: 25px;
@@ -146,7 +147,15 @@
     flex-direction: column;
     width: 260px;
     height: 18px;
+    color: #070A1C;
     gap:8px;
+}
+
+.gray-color{
+    color: #81818D;
+}
+.violet{
+    color: #543C52;
 }
 
 .textall{

@@ -1,6 +1,6 @@
-import { getCSRFToken, renderErrors, showConfirmForm } from "./auth.js"
+import { getCSRFToken } from "./auth.js"
 
-document.getElementById('register-form').addEventListener(
+document.getElementById('login-form').addEventListener(
     'submit',
     function(event){
         event.preventDefault()
@@ -21,16 +21,8 @@ document.getElementById('register-form').addEventListener(
             if (!response.ok) {
                 throw data
             }
+            window.location.href = data.redirect_url
             return data
-        })
-        .then(data => {
-            form.reset()
-            showConfirmForm()
-        })
-        .catch(data => {
-            if(data.errors){
-                renderErrors("register-errors", data.errors)
-            }
         })
     }
 )

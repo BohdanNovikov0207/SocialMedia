@@ -11,6 +11,7 @@
 <div class="content">
     {% include "user_app/particles/form_register.html" %}
     {% include "user_app/particles/form_login.html" %}
+    {% include "user_app/particles/form_confirm.html" %}
     <div class="laptop">
         <img src="{% static 'images/laptop.png' %}" alt="laptop">
     </div>
@@ -19,4 +20,6 @@
 {% block scripts %}
 <script type="module" src="{% static 'user_app/js/auth.js' %}"></script>
 <script type="module" src="{% static 'user_app/js/register.js' %}"></script>
+<script type="module" src="{% static 'user_app/js/login.js' %}"></script>
+<script type="module" src="{% static 'user_app/js/confirm.js' %}"></script>
 {% endblock %}

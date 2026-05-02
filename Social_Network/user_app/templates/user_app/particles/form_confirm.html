@@ -1,9 +1,12 @@
 <div class="form_confirm auth-form">
-    <p>Підтвердження пошти</p>
-    <p>Ми надіслали 6-значний код на вашу пошту (you@example.com). Введіть його нижче, щоб підтвердити акаунт</p>
-    <form action="" method="post">
-        {{ form_confirm.as_p }}
-        <button type="submit">Підтвердити</button>
+    <p class="bold-text heading-confirm">Підтвердження пошти</p>
+    <p class="instructions-confirm">Ми надіслали 6-значний код на вашу пошту (you@example.com). Введіть його нижче, щоб підтвердити акаунт</p>
+    <form id="confirm-form" method="post" action="{% url 'ConfirmForm' %}">
+        <p>Код підтвердження</p>
+        <div class="row-inputs">
+            {{ form_confirm.as_p }}
+        </div>
+        <button id="submit-button" type="submit">Підтвердити</button>
     </form>
-    <p id="base">Назад</p>
+    <p id="back">Назад</p>
 </div>

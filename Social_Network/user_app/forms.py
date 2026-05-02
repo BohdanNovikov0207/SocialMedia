@@ -9,14 +9,18 @@ user = get_user_model()
 class EmailUserCreationForm(forms.ModelForm):
     password1 = forms.CharField(
         label= 'Пароль',
+        min_length= 6,
         widget= forms.PasswordInput(attrs= {
-            'placeholder': 'Введи пароль'
+            'placeholder': 'Введи пароль',
+            "autofocus": True,
         })
     )
     password2 = forms.CharField(
         label= 'Підтверди пароль',
+        min_length= 6,
         widget= forms.PasswordInput(attrs= {
-            'placeholder': 'Повтори пароль'
+            'placeholder': 'Повтори пароль',
+            "autofocus": True,
         })
     )
      
@@ -28,7 +32,8 @@ class EmailUserCreationForm(forms.ModelForm):
         }
         widgets = {
             'email': forms.EmailInput(attrs= {
-                'placeholder': 'you@example.com'
+                'placeholder': 'you@example.com',
+                "autofocus": True
             })
         }
     
@@ -48,7 +53,7 @@ class EmailUserCreationForm(forms.ModelForm):
         return cleaned_data
     
     def save(self, commit= True): 
-        user : User = super().save(commit= False) 
+        user : User = super().save(commit= False)
         user.username = ''
         user.set_password(self.cleaned_data['password1'])
         if commit:
@@ -96,3 +101,85 @@ class EmailAuthenticatedForm(AuthenticationForm):
                 self.confirm_login_allowed(self.user_cache)
 
         return self.cleaned_data
+
+class EmailConfirmForm(forms.Form):
+    number1 = forms.CharField(
+        max_length= 1,
+        required= True,
+        label= "",
+        widget= forms.TextInput(attrs={
+            "placeholder": "__",
+            "autofocus": True,
+        })
+    )
+    number2 = forms.CharField(
+        max_length= 1,
+        required= True,
+        label= "",
+        widget= forms.TextInput(attrs={
+            "placeholder": "__",
+            "autofocus": True,
+        })
+    )
+    number3 = forms.CharField(
+        max_length= 1,
+        required= True,
+        label= "",
+        widget= forms.TextInput(attrs={
+            "placeholder": "__",
+            "autofocus": True,
+        })
+    )
+    number4 = forms.CharField(
+        max_length= 1,
+        required= True,
+        label= "",
+        widget= forms.TextInput(attrs={
+            "placeholder": "__",
+            "autofocus": True,
+        })
+    )
+    number5 = forms.CharField(
+        max_length= 1,
+        required= True,
+        label= "",
+        widget= forms.TextInput(attrs={
+            "placeholder": "__",
+            "autofocus": True,
+        })
+    )
+    number6 = forms.CharField(
+        max_length= 1,
+        required= True,
+        label= "",
+        widget= forms.TextInput(attrs={
+            "placeholder": "__",
+            "autofocus": True,
+        })
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        number1 = cleaned_data.get('number1')
+        number2 = cleaned_data.get('number2')
+        number3 = cleaned_data.get('number3')
+        number4 = cleaned_data.get('number4')
+        number5 = cleaned_data.get('number5')
+        number6 = cleaned_data.get('number6')
+        
+        code = number1 + number2 + number3 + number4 + number5 + number6
+
+        if not code.isdigit():
+            raise forms.ValidationError("Код повинен містити лише цифри")
+
+        cleaned_data["code"] = code
+        return cleaned_data
+    
+    def save(self, commit= True):
+        user : User = super().save(commit= False)
+        user.is_active = True
+        
+        if commit:
+            user.save()
+        return user

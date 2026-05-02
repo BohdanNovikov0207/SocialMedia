@@ -1,0 +1,47 @@
+.create-post{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 923px;
+    gap: 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #CDCED2;
+}
+.in-create{
+    display: flex;
+    flex-direction: column;
+    height: 88px;
+    width: 891px;
+    justify-content: space-between;
+}
+.chat-input{
+    display: flex;
+    justify-content: column;
+    width:891px;
+    height: 22px;
+    gap: 8px;
+}
+.text-punblish{
+    color: #81818D;
+}
+.nedo-button{
+    display: flex;
+    justify-content: flex-end;
+    width:100%;
+    height: 40px;
+    gap: 10px;
+}
+.button-publish{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    width: 190px;
+    height: 40px;
+    gap: 10px;
+    background-color: #543C52;
+    border-radius: 1234px;
+    cursor: pointer;
+}

@@ -1,9 +1,9 @@
 <div class="form_register auth-form">
     <nav>
         <p class="bold-text">Реєстрація</p>
-        <p id="login" class="bold-text" >Авторизація</p>
+        <p id="login" class="bold-text">Авторизація</p>
     </nav>
-    <p class="bold-text">Приєднуйся до нас!</p>
+    <p class="bold-text heading">Приєднуйся до нас!</p>
     <form id="register-form" action="{% url 'RegisterForm' %}" method="post">
         {{ form_register.as_p }}
         <button id="submit-button" type="submit">Створити акаунт</button>
