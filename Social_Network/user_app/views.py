@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from random import randint
 from django.conf import settings
 from django.urls import reverse
+from .models import User
 # Create your views here.
 
 class SettingsView(TemplateView):
@@ -37,6 +38,7 @@ class RegisterView(View):
 
             confirm_code = str(randint(100000, 999999))
 
+            request.session["confirm_user_id"] = user.id
             request.session["confirm_code"] = confirm_code
 
             send_mail(
@@ -62,12 +64,16 @@ class LoginView(View):
         if form.is_valid():
             user = form.get_user()
             login(request= request, user= user)
+
+            return JsonResponse({
+                "success": True,
+                "redirect_url": reverse("MainPage")
+            })
             
         return JsonResponse({
-            "success": True,
-            'errors': form.errors.get_json_data(),
-            "redirect_url": reverse("MainPage")
-        })
+            "success": False,
+            "errors": form.errors.get_json_data()
+        }, status=400)
 
 class ConfirmView(View):
     def post(self, request: HttpRequest, *args, **kwargs):
@@ -75,14 +81,26 @@ class ConfirmView(View):
         
         if form.is_valid():
             code = form.cleaned_data["code"]
-            user = form.save(commit=False)
-            user.is_active = True
-            user.save()
+            
+            session_code = request.session.get("confirm_code")
+            user_id = request.session.get("confirm_user_id")
 
-            if request.session["confirm_code"] == code:
+            if session_code == code and user_id:
+                user = User.objects.get(id=user_id)
+                user.is_active = True
+                user.save()
+
+                del request.session["confirm_code"]
+                del request.session["confirm_user_id"]
+
                 return JsonResponse({
                     "success": True
                 })
+            
+        return JsonResponse({
+            "success": False,
+            "errors": form.errors.get_json_data()
+        }, status=400)
 
 class LogoutView(View):
     def get(self, request: HttpRequest, *args, **kwargs):

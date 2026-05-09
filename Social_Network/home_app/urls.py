@@ -17,9 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import HomeView
+from .views import HomeView, FirstLoginView
 
 urlpatterns = [
-    path(route='', view=HomeView.as_view(), name="MainPage")
-    
+    path(route='', view=HomeView.as_view(), name="MainPage"),
+    path(route='first_login', view= FirstLoginView.as_view(), name="FirstLoginForm")
 ]

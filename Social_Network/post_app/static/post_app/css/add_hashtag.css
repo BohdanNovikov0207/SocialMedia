@@ -1,0 +1,95 @@
+.overlay2{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+}
+
+.hashtag-form{
+    width: 343px;
+    height: 66px;
+    gap: 16px;
+}
+
+.close-button-tag{
+    position: absolute;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    cursor: pointer;
+}
+.close-button-tag img{
+    width: 20px;
+    height: 20px;
+}
+
+
+.add-hash-main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    width: 431px;
+    height: 305px;
+    background-color: #FFFFFF;
+    border-radius:20px ;
+}
+ .text-add{
+    color: #070A1C;
+    width: 343px;
+    height: 39px;
+    font-size: 32px;
+}
+/* .name-tag{
+    color: #070A1C;
+    width: 45px;
+    height: 18px;
+     
+} */
+/* .hash-input{
+    display: flex;
+    gap: 6px;
+    width: 343px;
+    height: 42px;
+    border: 1px solid #81818D;
+    border-radius:10px ;
+} */
+.save-cancel{
+    display: flex;
+    width: 343px;
+    height: 40px;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.cancel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 40px;
+    gap: 8px;
+    border-radius: 1234px;
+    border: 1px solid #543C52;
+    color: #543C52;
+}
+.save{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 40px;
+    gap: 8px;
+    border-radius: 1234px;
+    background-color:  #543C52;
+     border: 1px solid #543C52;
+    color: #ffffff;
+}

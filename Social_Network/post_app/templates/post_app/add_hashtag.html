@@ -1,0 +1,17 @@
+{% load static %}
+<div class="overlay2">
+    <div class="add-hash-main">
+        <div class="close-button-tag" id="close-button-tag">
+            <img src="{% static 'post_app/images/cross.png' %}" alt="">
+        </div>
+        <span class="text-add">Додати хештег</span>
+        <form class="hashtag-form" method="post" action="{% url 'HashtagCreateForm' %}">
+            {% csrf_token %}
+            {{ hashtag_form.as_p }}
+            <div class="save-cancel">
+                <button type="reset" class="cancel">Скасувати</button>
+                <button type="submit" class="save">Зберегти</button>
+            </div>
+        </form>
+    </div>
+</div>

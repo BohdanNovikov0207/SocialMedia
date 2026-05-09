@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+{% endblock %}
+
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/side.css' %}"> 
-    <link rel="stylesheet" href="{% static 'home_app/css/chat_input.css' %}">
+    <link rel="stylesheet" href="{% static 'home_app/css/createpost_input.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/post.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/additional.css' %}">
 {% endblock %}
 
@@ -153,6 +158,15 @@
 {% endblock %}
 
 {% block content-panel %}
-{% include "home_app/chat_input.html" %}
+{% include "post_app/createpost_input.html" %}
+{% endblock %}
+{% block content %}
+{% include "post_app/create_post.html" %}
+{% if show_firstlogin %}
 {% include "home_app/additional.html" %}
+{% endif %}
+{% endblock %}
+{% block scripts %}
+<script type="module" src="{% static 'home_app/js/firstlogin.js' %}"></script>
+<script type="module" src="{% static 'post_app/js/create_post.js' %}"></script>
 {% endblock %}

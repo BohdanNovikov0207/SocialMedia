@@ -43,6 +43,13 @@ document.getElementById('back').addEventListener(
     }
 )
 
+document.getElementById('submit-button').addEventListener(
+    'click',
+    function(){
+        showFirstLoginForm()
+    }
+)
+
 export function renderErrors(containerId, errors) {
     const errorsContainer = document.getElementById(containerId)
     errorsContainer.innerHTML = ""

@@ -1,65 +1,85 @@
 
-.main-modal{
+
+.overlay{
+    position: fixed;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.overlay.show-modal{
+    display: flex;
+}
+
+.overlay.hide-modal{
+    display: none;
+}
+
+.firstlogin-modal{
+    display: flex;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50vh;
+    left: 50vw;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    max-width: 600px;
     height: 445px;
     width: 490px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 20px;
     gap:42px;
 }
-.div-text-info{
+
+.title-additional{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 39px;
     width: 402px;
     color: black;
-}
-
-.text-info{
     font-size: 34px;
 }
 
-.details{
+#firstlogin-form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 216px;
+    height: 180px;
     width: 402px;
     gap: 16px;
 }
 
-.label{
+#firstlogin-form p label{
     font-size: 16px;
 }
 
-.div-input{
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.input-container{
+#firstlogin-form p{
     display: flex;
     flex-direction: column;
     height: 66px;
     width: 402px;
 }
 
-.input-container input{
+#firstlogin-form p input{
     width: 402px;
     height: 42px;
     border-radius: 10px;
+    text-indent: 10px;
 }
 .or-choose{
     display: flex;
     flex-direction: row;
     height: 14px;
     width: 402px;
-    gap: 16px;
+    gap: 6px;
     font-size: 12px;
 }
 .green{
@@ -68,18 +88,14 @@
 .black-text{
     color: #070A1C,
 }
-.gray-text{
-    color: #81818D;
-    text-indent: 10px;
-}
 
 .button-cont{
     display: flex;
-    justify-content: flex-end;
+    justify-content: end;
     height: 40px;
     width: 402px;
 }
-.button-continue{
+#firstlogin-button{
     display: flex;
     justify-content: center;
     align-items: center;

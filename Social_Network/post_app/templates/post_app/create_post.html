@@ -1,0 +1,147 @@
+{% load static %}
+<div class="overlay1">
+    <div class="create_post_modal">
+        <div class="inner-modal">
+            <div class="close-button" id="close-button">
+                <img  src="{% static 'post_app/images/cross.png' %}" alt="">
+            </div>
+            <div class="cont-title">
+                <span class="text-title">Створення публікації</span>
+            </div>
+            <div class="cont-form">
+                <form id="post-create-form" action="{% url 'PostCreateForm' %}" method="post">
+                {{ form_post.as_p }}
+                
+                <div id="plus-tag">
+                    <img id="plus-tag" src="{% static 'post_app/images/plus.png' %}" alt="">
+                </div>
+                <span>Посилання</span>
+                <div class="link-inin" id="link-inin">
+                    <div class="input-and-button" >
+                        <div id="link-input-container" class="link-input-container">
+                            <input type="url" name="links" placeholder="https://example.com">
+                        </div>
+                        <div class="only-button" >
+                            <button type="button" id="add-link" class="add-link-button">
+                                <img src="{% static 'post_app/images/plus.png' %}" alt="">
+                            </button>
+                        </div>
+                    </div>
+                 
+                </div>
+                </form>
+            </div>
+            <div class="button-cont1">
+                <button id="select-image" type="button" class="select_image">
+                    <img src="{% static 'post_app/images/select_image.png' %}" alt="">
+                </button>
+                <button id="submit-form" type="submit" class="submit_form">
+                    Публікація 
+                    <img src="{% static 'post_app/images/arrow.png' %}" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Сюди JavaScript виводить помилки валідації форми. #}
+{# Форма відправляється не звичайним submit, а через fetch у post_create.js. #}
+<!-- <div class="form_post">
+    <div class="create-post">
+        <div id="post-errors"></div>
+        <form class="post-form" method="post" action="{% url 'PostCreateForm' %}">
+            <div>
+                <h1 class="h1-createpost">Створення публікації</h1>
+            </div>
+            {# Django сам виводить поля title, topic, content i tags. #}
+            {{ form_post.as_p }}
+            {# Посилання не входять у form.as_p, бо їх можна додавати кнопкою плюс. #}
+            <div id="links-list">
+                <p>Посилання:</p>
+                <div id="link-input-container">
+                    <input type="url" name="links" placeholder="https://example.com">
+                </div>
+                <button type="button" id="add-link">
+                    <img id="add-link" src="{% static 'post_app/images/plus.png' %}" alt="">
+                </button>
+            </div>
+            {# JavaScript створює додаткові input name="links" після натискання на плюс. #}
+            <div class="buttons-post">
+                <button class="post-image" type="button">
+                    <label for="id_images" class="label-images">
+                        <img class="post-image" src="{% static 'post_app/images/select_image.png' %}" alt="">
+                    </label>
+                </button>
+                <button class="publication-button" type="submit">
+                    <span>Публікація</span>
+                    <img class="publication-arrow" src="{% static 'post_app/images/arrow.png' %}" alt="">
+                </button>
+            </div>
+        </form>     
+        <script src="{% static 'post_app/js/create_post.js' %}"></script>
+    </div>
+</div>
+-->
+<!--
+<p><a href="">До всіх публікацій</a></p>
+<div class="form-post">
+        <h1 class="title-post">Створення публікації</h1>
+        <div class="create-post">
+            <form  class="post-form" action="{% url 'PostCreateForm' %}" method="post">
+                <div class="name-topic">   
+                    <p>Назва публікації</p>
+                    <input class="small-input" type="Напишіть назву публікації">
+                </div>
+                <div class="name-topic">
+                    <p>Тема публікації</p>
+                    <input class="small-input" type="Напишіть тему публікації">
+                </div>
+               <div class="tags-plus">
+                    <div class="choice-tag">#відпочинок</div>
+                    <div class="choice-tag">#натхнення</div>
+                    <div class="choice-tag">#життя</div>
+                    <div class="choice-tag">#природа</div>
+                    <div class="choice-tag">#читання</div>
+                    <div class="choice-tag">#спокій</div>
+                    <div class="choice-tag">#гармонія</div>
+                    <div class="choice-tag">#музика</div>
+                    <div class="choice-tag">#фільми</div>
+                    <div class="choice-tag">#подорожі</div>
+                     <button class="plus-image">
+                        <img class="plus-image" src="static/post_app/images/plus.png" alt="">
+                    </button>
+                </div>
+                <textarea class="text-about-post"></textarea>
+                <div class="link" >
+                    <span> Посилання</span>
+                    <div class="link-IN">
+                        <input class="link-input" >
+                        <div id="buttons-container">
+                            <button type="button" id="selectimage-button">
+                                <img id="selectimage-button" src="{% static 'post_app/images/select_image.png' %}" alt="">
+                            </button>
+                            <button id="publication-button-container" type="submit">
+                                <div id="publication-button">
+                                    <p id="publication-text">Публікація</p>
+                                    <img class="publication-arrow" src="{% static 'post_app/images/arrow.png' %}" alt="">
+                                </div>
+                            </button>
+                        </div>
+                        <button class="plus-image">
+                            <img class="plus-image" src="static/post_app/images/plus.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div class="buttons-post">
+                <button class="post-image" type="submit">
+                    <img class="post-image" src="static/post_app/images/select_image.png" alt="">
+                </button>
+                <button class="publication-button" type="submit">
+                    Публікація
+                    <img class="publication-arrow" src="static/post_app/images/arrow.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->

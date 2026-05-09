@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block meta %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+{% endblock %}
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/side.css' %}">
     <link rel="stylesheet" href="{% static 'post_app/css/post.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/add_hashtag.css' %}">
+    <link rel="stylesheet" href="{% static 'home_app/css/createpost_input.css' %}">
 {% endblock %}
 
 {% block side-panel %}
@@ -35,41 +40,16 @@
 </div>
 {% endblock %}
 
-{% block content %}
-    <div class="form_post">
-        <h1 id="title-post">Створення публікації</h1>
-        <div id="create-post">
-            <form id="post-form" action="" method="post">
-                <p>Назва публікації</p>
-                <input class="small-input" type="Напишіть назву публікації">
-                <p>Тема публікації</p>
-                <input class="small-input" type="Напишіть тему публікації">
+{% block content-panel %}
+{% include "post_app/createpost_input.html" %}
+{% include "post_app/add_hashtag.html" %}
+{% endblock %}
 
-                <div class="tags-plus">
-                    <div class="choice-tag">#відпочинок</div>
-                    <div class="choice-tag">#натхнення</div>
-                    <div class="choice-tag">#життя</div>
-                    <div class="choice-tag">#природа</div>
-                    <div class="choice-tag">#читання</div>
-                    <div class="choice-tag">#спокій</div>
-                    <div class="choice-tag">#гармонія</div>
-                    <div class="choice-tag">музика#</div>
-                    <div class="choice-tag">#фільми</div>
-                    <div class="choice-tag">#подорожі</div>
-                    <button id="plus-tag">
-                    <img id="plus-tag" src="static/post_app/images/plus.png" alt="">
-                    </button>
-                </div>
-                <div class="buttons-post">
-                    <button id="post-image" type="submit">
-                        <img  src="static/post_app/images/select_image.png" alt="">
-                    </button>
-                    <button id="publication-button" type="submit">
-                        Публікація
-                        <img id="publication-arrow" src="static/post_app/images/arrow.png" alt="">
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
+
+{% block content %}
+{% include "post_app/create_post.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="{% static 'post_app/js/create_post.js' %}"></script>
 {% endblock %}

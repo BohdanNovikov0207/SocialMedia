@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import PostView
+from .views import PostCreateView, PostView, HashtagCreateView
 
 urlpatterns = [
-    path(route='posts', view=PostView.as_view(), name="PostPage"),
-#    path(route='', view=PostCreateView.as_view(), name="PostForm")
+    path(route='', view=PostView.as_view(), name="PostPage"),
+    path(route='create', view=PostCreateView.as_view(), name="PostCreateForm"),
+    path(route='create_hashtag', view=HashtagCreateView.as_view(), name="HashtagCreateForm")
 ]

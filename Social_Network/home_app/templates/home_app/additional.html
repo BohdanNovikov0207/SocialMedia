@@ -1,28 +1,13 @@
-<div class="main-modal">
-    <div class="div-text-info">
-        <span class="text-info black-text">Додай деталі про себе</span>
-    </div>
-
-    <div class="details">
-        <div class="div-input">
-            
-            <div class="displayname-input input-container">
-                <span class="label black-text">Псевдонім автора</span>
-                <input type="text" class="gray-text" placeholder="Введіть Псевдонім автора">
-            </div>
-
-            <div class="username-input input-container">
-                <span class="label black-text">Ім'я користувача</span>
-                <input type="text" class="gray-text" placeholder="@">
-            </div>
+<div class="overlay">
+    <div class="firstlogin-modal">
+        <h1 class="title-additional">Додайте деталі про себе</h1>
+        <form id="firstlogin-form" method="post" action="{% url 'FirstLoginForm' %}">
+            {{ firstlogin_form.as_p }}
             <div class="or-choose">
                 <span class="black-text">Aбо оберіть:</span>
                 <span class="green">Запропоновані варіанти відповідно до Ім'я та Прізвища</span>
             </div>
-        </div>
-    </div>
-
-    <div class="button-cont">
-        <div class="button-continue">Продовжити</div>
+            <div class="button-cont"><button type="submit" id="firstlogin-button">Продовжити</button></div>
+        </form>
     </div>
 </div>

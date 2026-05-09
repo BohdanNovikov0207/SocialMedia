@@ -58,7 +58,7 @@ class EmailUserCreationForm(forms.ModelForm):
         user.set_password(self.cleaned_data['password1'])
         if commit:
             user.save()
-        return user    
+        return user
 
 class EmailAuthenticatedForm(AuthenticationForm):
     username = forms.EmailField(
@@ -175,11 +175,3 @@ class EmailConfirmForm(forms.Form):
 
         cleaned_data["code"] = code
         return cleaned_data
-    
-    def save(self, commit= True):
-        user : User = super().save(commit= False)
-        user.is_active = True
-        
-        if commit:
-            user.save()
-        return user

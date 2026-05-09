@@ -1,4 +1,4 @@
-.create-post{
+.createpost-input{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,7 +7,8 @@
     gap: 10px;
     background-color: #FFFFFF;
     border-radius: 10px;
-    border: 1px solid #CDCED2;
+    border-style: solid;
+    border: 1px
 }
 .in-create{
     display: flex;
@@ -18,20 +19,22 @@
 }
 .chat-input{
     display: flex;
-    justify-content: column;
-    width:891px;
+    width: 891px;
     height: 22px;
-    gap: 8px;
 }
-.text-punblish{
-    color: #81818D;
+.text-publish{
+    color: #000000;
+    width: 891px;
+    height: 22px;
+    border: none;
+    resize: none;
 }
 .nedo-button{
     display: flex;
     justify-content: flex-end;
-    width:100%;
+    width:891px;
     height: 40px;
-    gap: 10px;
+  
 }
 .button-publish{
     display: flex;
@@ -40,7 +43,7 @@
     color: #FFFFFF;
     width: 190px;
     height: 40px;
-    gap: 10px;
+
     background-color: #543C52;
     border-radius: 1234px;
     cursor: pointer;
