@@ -21,5 +21,5 @@ from .views import HomeView, FirstLoginView
 
 urlpatterns = [
     path(route='', view=HomeView.as_view(), name="MainPage"),
-    path(route='first_login', view= FirstLoginView.as_view(), name="FirstLoginForm")
+    path(route='first_login', view= FirstLoginView.as_view(), name="FirstLoginForm"),
 ]

@@ -15,6 +15,7 @@
     display: flex;
     position: fixed;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     transform: translate(-50%, -50%);
     top: 50vh;
@@ -30,35 +31,64 @@
 .inner-modal{
     display: flex;
     flex-direction: column;
+    position: relative;
     max-width: 685px;
     min-height: 614px;
 }
 
-.close-button{
+#post-create-form p:has(#id_images){
+    display: none;
+}
+
+.header-container-post{
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    width: 685px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.close-button{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 685px;
+    height: 20px;
+    top: 20px;
+    right: 30px;
     justify-content: end;
+    cursor: pointer;
 }
 .close-button img{
+    display: flex;
+    justify-content: end;
+    align-items: end;
     width: 20px;
     height: 20px;
 }
 
-.close-button:hover{
+.close-button img:hover{
     cursor: pointer;
+    width: 20px;
+    height: 20px;
 }
 
 .cont-title{
     display: flex;
     width: 685px;
     height: 39px;
+    justify-content: flex-start;
+    
 }
 
 .cont-title span{
     font-size: 34px;
+    top: 20px;
 }
 
-
+.cont-form form p:not(:has(input, textarea, select, label)){
+    display: none;
+}
 
 .cont-form form{
     display: flex;
@@ -67,6 +97,8 @@
     flex-direction: column;
     gap: 16px;
 }
+
+
 
 .cont-form form p{
     display: flex;
@@ -79,7 +111,7 @@
     border-radius: 10px;
     width: 343px;
     height: 42px;
-    border-color: #CDCED2;
+    border-color: 1px solid #CDCED2;
     border-style: solid;
     text-indent: 15px;
 }
@@ -159,23 +191,35 @@
 
 
 #id_images{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    cursor: pointer;
     display: none;
 }
 
 .link-inin{
-
     display: flex;
+    flex-direction: column;
     min-width: 100%;
     min-height: 42px;
     gap:4px;
-    flex-direction: column;
-    
+}
+
+.input-and-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 .link-input-container{
     display: flex;
-    gap: 10px;
-    width: 343px;
+    width: 313px;
+    height: 42px;
     flex-direction: row;
     min-height: 42px;
 }
@@ -201,13 +245,17 @@
     background: none;
     border: none;
     width: 20px;
-    height: 20px;
+    height: 28px;
     cursor: pointer;
 }
 
-.add-link img{
+#id_links{
+    display: none;
+}
+
+.add-link-button img{
     width: 20px;
-    height: 20px;
+    height: 28px;
 }
 
 .button-cont1{
@@ -254,3 +302,61 @@
 #select-image, #submit-form{
     cursor: pointer;
 }
+
+#select-image{
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+}
+
+.image-preview{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.image-ind{
+    display: flex;
+    position: relative;
+    width: 217.67px;
+    height: 265px;
+}
+
+#image-preview{
+    display: flex;
+    width: 217.67px;
+    height: 265px;
+    border-radius: 10px;
+}
+
+#delete_image{
+    display: flex;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#delete_image img{
+    width: 40px;
+    height: 40px;
+}
+ /*.all-image-post{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap:16px;
+}*/

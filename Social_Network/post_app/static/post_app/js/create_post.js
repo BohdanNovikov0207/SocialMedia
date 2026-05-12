@@ -33,14 +33,74 @@ document.getElementById('close-button').addEventListener(
     }
 )
 
-document.getElementById('close-button-tag').addEventListener(
-    'click',
-    function(){
-        document.querySelector(".overlay2").style.display = "none"
+document.addEventListener("DOMContentLoaded", function(){
+    let closeButton = document.getElementById('close-button-tag')
+    if (closeButton){
+        closeButton.addEventListener(
+            'click',
+            function(){
+                document.querySelector(".overlay2").style.display = "none"
+            }
+        )}
+
+})
+
+document.addEventListener("DOMContentLoaded", function() {
+    const selectImage = document.getElementById('select-image');
+    const idImages = document.getElementById('id_images');
+
+    if (selectImage && idImages) {
+        selectImage.appendChild(idImages);
+        selectImage.addEventListener('click', function(si) {
+            if (si.target !== idImages) {
+                idImages.click();
+            }
+        });
     }
-)
+});
 
+const saveTag = document.getElementById('save-tag');
+const hashtagForm = document.getElementById('hashtag-form');
 
+if (saveTag) {
+    saveTag.addEventListener('click', function() {
+        const formData = new FormData(hashtagForm);
+
+        fetch(hashtagForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': hashtagForm.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                let overlay2 = document.querySelector(".overlay2"); 
+                if (overlay2) {
+                    overlay2.style.display = "none"; 
+                }
+                let idHashtagName = document.getElementById('id_hashtag_name');
+                if (idHashtagName) {
+                    idHashtagName.value = ""; 
+                }
+            } else {
+                alert("Помилка при збереженні хештега!");
+            }
+        });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cancelTag = document.getElementById('cancel-tag');
+    const idHashtagName = document.getElementById('id_hashtag_name'); 
+
+    if (cancelTag && idHashtagName) {
+        cancelTag.addEventListener('click', function() {
+            idHashtagName.value = ""; 
+            idHashtagName.focus(); 
+        });
+    }
+});
 
 // Показуємо помилки, які backend повертає у JSON-форматі.
 function renderErrors(errors) {
@@ -78,50 +138,49 @@ document.getElementById('plus-tag').addEventListener(
     }
 )
 
-const linkInin = document.getElementById("link-inin");
+function createLinkBlock() {
 
-const plusButton = document.getElementById("add-link");
+    let linksContainer = document.getElementById("link-inin")
 
-plusButton.addEventListener("click", function () {
+    linksContainer.lastElementChild.querySelector(".only-button").remove()
 
-    
-    const oldBtn = document.querySelector(".only-button");
-    if (oldBtn) oldBtn.remove();
+    let container = document.createElement("div")
+    container.className = "input-and-button"
 
-  
-    const container = document.createElement("div");
-    container.className = "input-and-button";
+    let inputContainer = document.createElement("div")
+    inputContainer.className = "link-input-container"
 
-    const inputContainer = document.createElement("div");
-    inputContainer.className = "link-input-container";
+    let input = document.createElement("input")
+    input.type = "url"
+    input.name = "links"
+    input.placeholder = "https://example.com"
 
-    const input = document.createElement("input");
-    input.type = "url";
-    input.name = "links";
-    input.placeholder = "https://example.com";
+    let buttonContainer = document.createElement("div")
+    buttonContainer.className = "only-button"
 
-    inputContainer.appendChild(input);
+    let button = document.createElement("button")
+    button.type = "button"
+    button.className = "add-link-button"
 
-  
-    const btnWrapper = document.createElement("div");
-    btnWrapper.className = "only-button";
+    let img = document.createElement("img")
+    img.src = "/static/post_app/images/plus.png"
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "add-link-button";
+    button.addEventListener("click", createLinkBlock)
 
-    const img = document.createElement("img");
-    img.src = "/static/post_app/images/plus.png";
+    button.appendChild(img)
+    buttonContainer.appendChild(button)
+    inputContainer.appendChild(input)
+    container.appendChild(inputContainer)
+    container.appendChild(buttonContainer)
+    linksContainer.appendChild(container)
+}
 
-    button.appendChild(img);
-    btnWrapper.appendChild(button);
 
-    
-    container.appendChild(inputContainer);
-    container.appendChild(btnWrapper);
-
-    linkInin.appendChild(container);
-});
+// Первая кнопка
+document.querySelector(".add-link-button").addEventListener(
+    "click",
+    createLinkBlock
+);
 
 // Відправляємо форму у фоновому режимі без перезавантаження сторінки.
 document.getElementById("post-create-form").addEventListener("submit", function (e) {
@@ -154,11 +213,42 @@ document.getElementById("post-create-form").addEventListener("submit", function 
             window.location.href = data.redirect_url;
         }
     })
-    .catch((data) => {
+    .catch(data => {
         // Якщо Django повернув помилки форми, показуємо їх над формою.
         if (data.errors) {
             renderErrors(data.errors);
         }
+    });
+});
+
+const inputImages = document.getElementById('id_images'); // проверь ID своего инпута
+const imageContainer = document.getElementById('image-container');
+
+inputImages.addEventListener('change', function() {
+    imageContainer.innerHTML = ''; 
+
+    const files = Array.from(this.files).slice(0, 3);
+
+    files.forEach((file) => {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const div = document.createElement('div');
+            div.className = 'image-ind';
+            div.innerHTML = `
+                <img src="${e.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                <button type="button" class="delete-image" id="delete-image" style="background: transparent; width: 40px; height: 40px; border: none; position: absolute; top: 5px; right: 5px; cursor: pointer;">
+                        <img src="/static/post_app/images/trashcan.png" style="width: 40px; height: 40px; display: block;" >
+                </button>
+            `;
+            imageContainer.appendChild(div);
+            div.querySelector(".delete-image").addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                div.remove(); 
+            });
+        };
+        reader.readAsDataURL(file);
     });
 });
 

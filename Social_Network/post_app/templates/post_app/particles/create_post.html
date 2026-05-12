@@ -1,0 +1,62 @@
+{% load static %}
+<div class="overlay1">
+    <div class="create_post_modal">
+        <div class="inner-modal">
+            <div class="header-container-post">
+                <div class="close-button" id="close-button">
+                    <img  src="{% static 'post_app/images/cross.png' %}" alt="">
+                </div>
+                <div class="cont-title">
+                    <span class="text-title">Створення публікації</span>
+                </div>
+            </div>
+            <div id="post-errors"></div>
+            <div class="cont-form">
+                <form id="post-create-form" action="{% url 'PostCreateForm' %}" method="post" enctype="multipart/form-data">
+                    {{ form_post.as_p }}
+                    
+                    <div id="plus-tag">
+                        <img id="plus-tag" src="{% static 'post_app/images/plus.png' %}" alt="">
+                    </div>
+                    <span>Посилання</span>
+                    <div class="link-inin" id="link-inin">
+                        <div class="input-and-button">
+                            <div class="link-input-container">
+                                <input type="url" name="links" placeholder="https://example.com">
+                            </div>
+                            <div class="only-button">
+                                <button type="button" class="add-link-button">
+                                    <img src="{% static 'post_app/images/plus.png' %}" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="image-container" class="image-preview">
+                        {% if post.images.all %}
+                            {% for image in post.images.all %}
+                                <div class="image-ind">
+                                    <img src="{{ image.compressed_image.url }}" style="max-width: 100%; height: auto; display: block;">
+                                    <button type="button" id="delete-image">
+                                        <img src="{% static 'post_app/images/trashcan.png' %}" alt="">
+                                    </button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="button-cont1">
+                        <button id="select-image" type="button" class="select_image">
+                            <img src="{% static 'post_app/images/select_image.png' %}" alt="">
+                        </button>
+                        <button id="submit-form" type="submit" class="submit_form">
+                            Публікація
+                            <img src="{% static 'post_app/images/arrow.png' %}" alt="">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Сюди JavaScript виводить помилки валідації форми. #}
+{# Форма відправляється не звичайним submit, а через fetch у post_create.js. #}

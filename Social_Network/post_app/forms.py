@@ -25,17 +25,10 @@ class MultipleFileField(forms.FileField):
 class PostForm(forms.ModelForm):
     # 
     tags = forms.ModelMultipleChoiceField(
-        label = 'Теги',
+        label = '',
         required = False,
         queryset= Tag.objects.all(),
         widget = forms.CheckboxSelectMultiple(attrs={'class': 'tag-checkbox'})
-    )
-    
-    links = forms.ModelMultipleChoiceField(
-        label = '',
-        required = False,
-        queryset= PostLinks.objects.all(),
-        widget = forms.CheckboxSelectMultiple
     )
     # 
     images = MultipleFileField(
@@ -46,11 +39,12 @@ class PostForm(forms.ModelForm):
     
     class Meta:
         model = Post
-        fields = ('title', 'topic', 'tags', 'content', 'links', 'images')
+        fields = ('title', 'topic', 'tags', 'content', 'images')
         labels = {
             'title': 'Назва публікації',
             'topic': 'Тема публікації',
-            'content': ""
+            'content': '',
+            'tags': ''
         }
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Природа, книга і спокій 🌿'}),
@@ -73,16 +67,14 @@ class PostForm(forms.ModelForm):
         
         self.images_list = []
         
-        if links is None:
-            links = []
+        if links:
+            for link in links:
+                clean_link = link.strip()
             
-        for link in links:
-            clean_link = link.strip()
-            
-            if clean_link:
-                self.links_list.append(clean_link)
+                if clean_link:
+                    self.links_list.append(clean_link)
                 
-        if images is not None:
+        if images:
             self.images_list = list(images)
             
     def clean(self):
@@ -92,7 +84,7 @@ class PostForm(forms.ModelForm):
         image_field = forms.ImageField()
         
         for link in self.links_list:
-            try:
+            try:    
                 url_field.clean(link)
             except forms.ValidationError:
                 self.add_error('links', f"Некоректне посилання: {link}")
@@ -156,15 +148,21 @@ class PostForm(forms.ModelForm):
                 
         image.seek(0)
         
-        compressed_name = f'compressed_{image.name.rsplit(". ", 1)[0]}.jpg'
+        compressed_name = f'compressed_{image.name.rsplit(". ", 1)[0]}.png'
         
         return ContentFile(buffer.getvalue(), name= compressed_name)
 
 class HashtagForm(forms.Form):
-    name = forms.CharField(
+    hashtag_name = forms.CharField(
         label= 'Назва',
         required= True,
         max_length= 20,
         widget= forms.TextInput(attrs={
             'placeholder': '#'
         }))
+
+    def save(self):
+        name = self.cleaned_data.get('hashtag_name')
+        tag, _ = Tag.objects.get_or_create(name= name)
+        
+        return tag 

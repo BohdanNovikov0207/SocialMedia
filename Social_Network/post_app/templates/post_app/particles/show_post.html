@@ -1,0 +1,60 @@
+<!-- Відображення списку постів -->
+{% for post in posts %}
+    {# Один article відповідає одній публікації зі списку posts. #}
+        <article class="post">
+            <div class="top-div">
+                {# Дані поста беремо через крапку: post.title, post.author.email, post.created_at. #}
+                <p class="author-post"> {{ post.author.last_name }}</p>
+                {# Фільтр date форматує дату у вигляді день.місяць.рік години:хвилини. #}
+                <!-- <p>Дата: {{ post.created_at|date:"d.m.Y H:i" }}</p> -->
+            </div>
+               <h2 class="name-post">{{ post.title }}</h2>
+              
+
+            <div class="all-text-post">   
+                {# Тему показуємо тільки якщо вона заповнена. #}
+                {% if post.topic %}
+                    <p class="topic-post"><strong></strong> {{ post.topic }}</p>
+                {% endif %}
+                {# Основний текст публікації. #}
+                <p class="main-text-post">{{ post.content }}</p>
+                        {# Теги поста беруться з ManyToMany-зв'язку Post.tags. #}
+                {% if post.tags.all %}
+                    <p class="tag-post">
+                        <strong></strong>
+                        {# Виводимо назву кожного тегу з символом # перед нею. #}
+                        {% for tag in post.tags.all %}
+                            #{{ tag.name }}
+                        {% endfor %}
+                    </p>
+                {% endif %}
+                {# Посилання поста беруться з окремої моделі PostLink. #}
+                {% if post.links.all %}
+                    <div class="link-post-many">
+                        {# Для кожного збереженого URL створюємо окремий пункт списку. #}
+                        {% for link in post.links.all %}
+                            <div>
+                                <a class="link-post" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.url }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            {# Фото поста беруться з окремої моделі PostPhoto. #}
+            {% if post.images.all %}
+                <p><strong></strong></p>
+                {# Перебираємо всі фото, які прив'язані до поточного поста. #}
+                <div class="all-image-post">
+                    {% for image in post.images.all %}
+                        <div class="one-image-post">
+                            {# Клік по стисненому фото відкриває оригінал у новій вкладці. #}
+                            <a href="{{ image.original_image.url }}" target="_blank" rel="noopener noreferrer">
+                                <img  src="{{ image.compressed_image.url }}" alt="{{ post.title }}" style="max-width: 300px; height: auto;">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </article>
+        <hr>    
+{% endfor %}
