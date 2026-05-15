@@ -1,0 +1,207 @@
+@font-face {
+  font-family: GT Walsheim Pro;
+  src: url("../../fonts/GTWalsheimProRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: GT Walsheim Pro;
+}
+
+.see-all{
+    color:#543C52;
+}
+.top-text{
+    display: flex;
+    width: 883px;
+    height: 18px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+.friends-pages{
+    display: flex;
+    flex-direction: column;
+    width: 254px;
+    height: 152px;
+    top: 104px;
+    left: 80px;
+    gap: 16px;
+}
+
+.f-pages{
+    display: inline-block;
+    width: max-content;
+    height: 26px;
+    text-decoration: none;
+    color: #81818D;
+}
+
+.f-pagesG{
+    display: inline-block;
+    width: max-content;
+    text-decoration: none;
+    font-weight: bold;
+    color: #070A1C;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #070A1C;
+}
+
+.all_friends{
+    display: flex;
+    flex-direction: column;
+    width: 923px;
+    height: 1545px;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.all_friends::-webkit-scrollbar {
+    display: none;
+}
+
+.requests_friends{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #CDCED2;
+    width: 923px;
+    height: 329px;
+    gap:8px;
+}
+.friend-titles{
+    display: flex;
+    font-weight: bold;
+}
+.in-requests_friends{
+    display: flex;
+    flex-direction: row;
+    width: 586px;
+    height: 263px;
+    gap: 8px;
+    margin-left: 20px;
+}
+.friend_request{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 289px;
+    height: 263px;
+    gap: 16px;
+    border-radius: 10px;
+    border: 1px solid #CDCED2;
+}
+
+.avat-request{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+}
+
+.avat-request img{
+    width: 96px;
+}
+.friend-nick-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 289px;
+    height: 55px;
+}
+.friend-nickname{
+    width: max-content;
+    height: 27px;
+    color:#070A1C;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: #070A1C;
+    letter-spacing: -0.5px;
+}
+.bigger-text{
+    font-family: GT Walsheim Pro, sans-serif;
+    font-weight: bold;
+    
+}
+.smaller-text{
+    font-family: GT Walsheim Pro, sans-serif;
+    font-weight: 500;
+}
+    
+.name-friend{
+    display: flex;
+    justify-content: center;
+    width: 53px;
+    height: 18px;
+}
+.request-buttons{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: max-content;
+    height: 40px;
+    gap:16px
+}
+.accept-request{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#FFFFFF;
+    background-color:#543C52;
+    border-radius: 1234px;
+    width: 111px;
+    height: 40px;
+}
+.add-recomendation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#FFFFFF;
+    background-color:#543C52;
+    border-radius: 1234px;
+    width: 79px;
+    height: 40px;
+}
+.delete-request{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#543C52;
+    background-color:#FFFFFF;
+    border-radius: 1234px;
+    width: 94px;
+    height: 40px;
+}
+.recomend_friends{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #CDCED2;
+    width: 923px;
+    height: 600px;
+    gap:8px;
+    margin-top: 10px;
+}
+.message-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#FFFFFF;
+    background-color:#543C52;
+    border-radius: 1234px;
+    width: 123px;
+    height: 40px;
+}

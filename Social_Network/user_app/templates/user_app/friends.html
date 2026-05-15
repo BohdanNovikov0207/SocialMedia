@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% load static %}
+{% block meta %}
+    <meta name="csrf-token" content="{{ csrf_token }}">
+{% endblock %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'user_app/css/friends.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+
+{% block side-panel %}
+    <div class="friends-pages">
+        <a href="" class="f-pagesG">Головна</a>
+        <a href="" class="f-pages">Запити</a>
+        <a href="" class="f-pages">Рекомендації</a>
+        <a href="" class="f-pages">Всі друзі</a>
+    </div>
+{% endblock %}
+
+{% block content-panel %}
+<div class="all_friends">
+    <div class="requests_friends">
+        <div class="top-text">
+            <p class="friend-titles smaller-text">Запити</p>
+            <p class="see-all smaller-text">Дивитись всі</p>
+        </div>
+        <div class="in-requests_friends">
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar1.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Yehor Aung</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="accept-request">Підтвердити</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Ann Ann </strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="accept-request">Підтвердити</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="recomend_friends">
+        <div class="top-text">
+            <p class="friend-titles smaller-text">Рекомендації</p>
+            <p class="see-all smaller-text">Дивитись всі</p>
+        </div>
+        <div class="in-requests_friends">
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar1.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Yehor Aung</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="add-recomendation">Додати</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Ann Ann</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="add-recomendation">Додати</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Ann Ann</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="add-recomendation">Додати</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+         </div>
+         <div class="in-requests_friends">
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar1.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong></strong>Yehor Aung</p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="add-recomendation">Додати</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Ann Ann</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="add-recomendation">Додати</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+         </div>
+         
+    </div>
+
+    <div class="recomend_friends">
+        <div class="top-text">
+            <p class="friend-titles smaller-text">Всі друзі</p>
+            <p class="see-all smaller-text">Дивитись всі</p>
+        </div>
+        <div class="in-requests_friends">
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar1.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Yehor Aung</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="message-button">Повідомлення</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Ann Ann</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="message-button">Повідомлення</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Ann Ann</strong> </p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="message-button">Повідомлення</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+         </div>
+         <div class="in-requests_friends">
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar1.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Yehor Aung</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="message-button">Повідомлення</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+            <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar2.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Ann Ann</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="message-button">Повідомлення</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+              <div class="friend_request">
+                <div class="avat-request">
+                    <img src="{% static 'home_app/images/avatar1.png' %}">
+                </div>
+                <div class="friend-nick-name">
+                    <p class="friend-nickname bigger-text"><strong>Yehor Aung</strong></p>
+                    <p class="name-friend smaller-text ">@thelili</p>
+                </div>
+                <div class="request-buttons">
+                    <button class="message-button">Повідомлення</button>
+                    <button class="delete-request"><strong>Видалити</strong></button>
+                </div>
+            </div>
+         </div>
+         
+    </div>
+    
+</div>
+{% endblock %}
+

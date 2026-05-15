@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'friends_app',
     'home_app',
     'post_app',
     'user_app'
@@ -64,7 +63,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / "templates",
-            BASE_DIR / "friends_app" / "templates",
             BASE_DIR / "post_app" / "templates",
             BASE_DIR / "home_app" / "templates",
             BASE_DIR / "user_app" / "templates"

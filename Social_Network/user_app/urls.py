@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SettingsView, LogoutView, AuthView, LoginView, RegisterView, ConfirmView, LogoutView
+from .views import SettingsView, LogoutView, AuthView, LoginView, RegisterView, ConfirmView, LogoutView, FriendsView
 
 urlpatterns = [
     path(route='settings', view=SettingsView.as_view(), name="SettingsPage"),
@@ -8,5 +8,6 @@ urlpatterns = [
     path(route= 'login', view=LoginView.as_view(), name="LoginForm"),
     path(route= 'register', view=RegisterView.as_view(), name="RegisterForm"),
     path(route= 'confirm', view= ConfirmView.as_view(), name="ConfirmForm"),
-    path(route= 'logout', view= LogoutView.as_view(), name="Logout")
+    path(route= 'logout', view= LogoutView.as_view(), name="Logout"),
+    path(route= 'friends', view=FriendsView.as_view(), name="FriendsPage")
 ]

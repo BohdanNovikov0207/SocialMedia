@@ -172,7 +172,6 @@
 #plus-tag{
     display: flex;
     width: 20px;
-    height: 28px;
     gap: 6px;
     cursor: pointer;
 }
@@ -245,7 +244,6 @@
     background: none;
     border: none;
     width: 20px;
-    height: 28px;
     cursor: pointer;
 }
 
@@ -255,7 +253,6 @@
 
 .add-link-button img{
     width: 20px;
-    height: 28px;
 }
 
 .button-cont1{

@@ -15,6 +15,7 @@ class SettingsView(TemplateView):
     template_name = "user_app/settings.html"
 
 
+
 class LogoutView(TemplateView):
     template_name = "user_app/logout.html"
     
@@ -106,3 +107,6 @@ class LogoutView(View):
     def get(self, request: HttpRequest, *args, **kwargs):
         logout(request)
         return redirect('AuthPage')
+
+class FriendsView(TemplateView):
+    template_name = "user_app/friends.html"

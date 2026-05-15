@@ -9,7 +9,7 @@ const observer = new IntersectionObserver(async (entries) => {
         isLoading = true
         currentPage ++
 
-        const response = await fetch(`/post?page=${currentPage}`, {
+        const response = await fetch(`${window.location.pathname}?page=${currentPage}`, {
             headers:{
                 'X-Requested-With': 'XMLHttpRequest'
             }
@@ -18,7 +18,6 @@ const observer = new IntersectionObserver(async (entries) => {
         if(data.success){
             const html = data.html
             loaderLine.insertAdjacentHTML('beforebegin', html)
-            loaderLine.insertAdjacentHTML('beforebegin', 'html')
         }else{
             observer.disconnect()
         }

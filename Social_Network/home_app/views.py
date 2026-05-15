@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from .forms import FirstLoginForm
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from post_app.forms import PostForm
+from post_app.forms import PostForm, HashtagForm
 from django.views import View
 from django.http import JsonResponse, HttpRequest
 from post_app.models import Post
@@ -21,6 +21,7 @@ class HomeView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["form_post"] = PostForm()
+        context["hashtag_form"] = HashtagForm()
 
         user = self.request.user
         
@@ -30,10 +31,14 @@ class HomeView(LoginRequiredMixin, ListView):
 
         return context
     # 
+
+    def get_queryset(self):
+        return Post.objects.all().order_by("-created_at")
+
     def get(self, request, *args, **kwargs):
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
             # із моделі Post отримуємо всі пости у змінну queryset
-            queryset = self.get_queryset()        
+            queryset = self.get_queryset()
             paginator = Paginator(queryset, self.paginate_by)
             page_number = request.GET.get('page')
             page_obj = paginator.get_page(page_number)
@@ -41,13 +46,15 @@ class HomeView(LoginRequiredMixin, ListView):
                 return JsonResponse({'success': False})
             return JsonResponse({
                 'success': True,
-                'html': render_to_string(self.template_name, {'posts': page_obj.object_list})
+                'html': render_to_string("post_app/particles/show_post.html", {
+                    'posts': page_obj.object_list
+                },
+                request= request
+                )
             })
         
         return super().get(request, *args, **kwargs)
 
-        
-            
 
 class FirstLoginView(View):
     def post(self, request: HttpRequest, *args, **kwargs):

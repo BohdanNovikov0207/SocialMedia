@@ -11,16 +11,16 @@ from .models import Post, Tag
 class PostView(LoginRequiredMixin, ListView):
     template_name = "post_app/post.html"
     paginate_by = 5
+    context_object_name = 'posts'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)    
         context["form_post"] = PostForm()
         context["hashtag_form"] = HashtagForm()
-        context["posts"] = Post.objects.filter(author_id = self.request.user)[:self.paginate_by]
         return context
 
     def get_queryset(self):
-        return Post.objects.filter(author_id = self.request.user)
+        return Post.objects.filter(author_id = self.request.user).order_by("-created_at")
     
     def get(self, request, *args, **kwargs):
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
@@ -33,7 +33,11 @@ class PostView(LoginRequiredMixin, ListView):
                 return JsonResponse({'success': False})
             return JsonResponse({
                 'success': True,
-                'html': render_to_string(self.template_name, {'posts': page_obj.object_list})
+                'html': render_to_string("post_app/particles/show_post.html", {
+                    'posts': page_obj.object_list
+                },
+                request= request
+                )
             })
         
         return super().get(request, *args, **kwargs)

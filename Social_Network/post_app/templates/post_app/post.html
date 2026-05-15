@@ -56,9 +56,9 @@
 {% block content %}
     {% include "post_app/particles/create_post.html" %}
     {% include "post_app/add_hashtag.html" %}
-  
 {% endblock %}
 
 {% block scripts %}
     <script type="module" src="{% static 'post_app/js/create_post.js' %}"></script>
+    <script type="module" src="{% static 'post_app/js/postList.js' %}"></script>
 {% endblock %}

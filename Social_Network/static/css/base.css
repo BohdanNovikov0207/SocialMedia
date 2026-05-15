@@ -3,6 +3,9 @@
   src: local("GT Walsheim Pro Regular"),local("GTWalsheimProRegular"),url("../../static/fonts/GTWalsheimProRegular.woff2") format("woff2"),url("../../static/fonts/GTWalsheimProRegular.woff") format("woff"),url("../../static/fonts/GTWalsheimProRegular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.007em;
 }
 
 .bold-text {

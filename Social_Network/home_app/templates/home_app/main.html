@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'post_app/css/post.css' %}">
     <link rel="stylesheet" href="{% static 'home_app/css/additional.css' %}">
     <link rel="stylesheet" href="{% static 'post_app/css/show_post.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/add_hashtag.css' %}">
 {% endblock %}
 
 {% block side-panel %}
@@ -168,19 +169,20 @@
     </div>
 {% endblock %}
 
-{% block modal-create-post %}
-    {% include 'post_app/particles/create_post.html' %}
-{% endblock modal-create-post %}
+
 
 {% block content %}
     {% include "post_app/particles/create_post.html" %}
     {% if show_firstlogin %}
         {% include "home_app/additional.html" %}
     {% endif %}
-    
+   
+    {% include 'post_app/particles/create_post.html' %}
+    {% include "post_app/add_hashtag.html" %}
 {% endblock %}
 
 {% block scripts %}
     <script type="module" src="{% static 'home_app/js/firstlogin.js' %}"></script>
     <script type="module" src="{% static 'post_app/js/create_post.js' %}"></script>
+    <script type="module" src="{% static 'post_app/js/postList.js' %}"></script>
 {% endblock %}  
