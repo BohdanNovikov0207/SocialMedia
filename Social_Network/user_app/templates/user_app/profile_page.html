@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta %}
+    <meta name="csrf-token" content="{{ csrf_token }}">
+{% endblock %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'user_app/css/profile_page.css' %}">
+    <link rel="stylesheet" href="{% static 'post_app/css/show_post.css' %}">
+
+{% endblock %}
+{% block side-panel %}
+<div class="profile">
+    <div class="prof-info">
+        <div class = 'lina-pfp'>
+            <img src="{% static 'home_app/images/avatar1.png' %}">
+        </div>
+        <div class="nickname">
+            <span class="bold-text">Yehor Aung</span>
+            <span class="bold-text">@thelili</span>
+        </div>
+    </div>
+    <div class="information">
+        <div class="posts">
+            <span class="bold-text">3</span>
+            <span class="gray-color">Дописи</span>
+        </div>
+        <div class="readers">
+            <span class="bold-text">12.1к</span>
+            <span class="gray-color">Читачі</span>
+        </div>
+        <div class="friends">
+            <span class="bold-text" >222</span>
+            <span class="gray-color">Друзі</span>
+        </div>
+    </div>
+    <div class="request-buttons">
+        <button class="accept-request" data-friend-action data-url="{% url 'friends_action' user_id 'add' %}">Підтвердити</button>
+        <button class="delete-request" data-friend-action data-url="{% url 'friends_action' user_id 'dismiss' %}"><strong>Відхилити</strong></button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content-panel %}
+    <div class="post-list">
+        {% include 'post_app/particles/show_post.html' %}
+        <div id="postLoaderLine" style="width: 100%; height: 1px;"></div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'post_app/js/postList.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('.accept-request');
+            const tokenMeta = document.querySelector('meta[name="csrf-token"]');
+
+            if (button && tokenMeta) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // чтобы страница не перезагружалась
+
+                    fetch(button.dataset.url, { 
+                        method: 'POST', 
+                        headers: { 'X-CSRFToken': tokenMeta.content } 
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('Успешно отправлено!');
+                        // Меняем текст кнопки после успешной отправки
+                        button.textContent = 'Надіслано';
+                    })
+                    .catch(err => console.error('Ошибка:', err));
+                });
+            }
+        });
+    </script>
+{% endblock %}

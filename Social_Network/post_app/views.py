@@ -9,6 +9,7 @@ from .forms import PostForm, HashtagForm
 from .models import Post, Tag
 
 class PostView(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy("AuthPage")
     template_name = "post_app/post.html"
     paginate_by = 5
     context_object_name = 'posts'

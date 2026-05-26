@@ -1,0 +1,35 @@
+{% load static %}
+<div class="overlay-edit-chat" id="overlay">
+    <div class="admin-edit-cont">
+        <div class="dots-cont">
+            <img src="{% static 'chat_app/images/dots.png' %}"  class="dots-icon">
+        </div>
+        <div class="media">
+            <img src="{% static 'images/post.png' %}" class="media-icon">
+            <p class="media-text">Медіа</p>
+        </div>   
+        <div class="edit-group">
+            <img src="{% static 'images/pen.png' %}" class="edit-icon">
+            <p class="edit-text">Редагувати групу</p>
+        </div>
+        <div class="line"></div>
+        <div class="delete-group">
+            <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-icon">
+            <p class="delete-text">Видалити чат</p>
+        </div>
+    </div>
+    <div class="nonadmin-cont">
+        <div class="dots-cont">
+            <img src="{% static 'chat_app/images/dots.png' %}"  class="dots-icon">
+        </div>
+        <div class="media">
+            <img src="{% static 'images/post.png' %}" class="media-icon">
+            <p class="media-text">Медіа</p>
+        </div>   
+        <div class="line"></div>
+        <div class="leave-group">
+            <img src="{% static 'chat_app/images/exit.png' %}" class="leave-icon">
+            <p class="leave-text">Покинути групу</p>
+        </div>
+    </div>    
+</div>

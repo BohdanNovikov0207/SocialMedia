@@ -1,0 +1,187 @@
+.overlay-new{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.new-group-container {
+    background-color: #ffffff;
+    flex-direction: column;
+    display: flex;
+    width: 490px;
+    height: 777px;
+    gap: 24px;
+    border-radius: 20px;
+    border: none;
+    align-items: center;
+}
+.close-button{
+    margin-top: 24px;
+    position: relative;
+    display: flex;
+    align-items: start;
+    width: 402px;
+    height: 20px;
+    justify-content: end;
+    cursor: pointer;
+    
+}
+.close-button img{
+    width: 20px;
+    height: 20px;
+}
+
+.new-group-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 402px;
+    height: 39px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    width: 402px;
+    height: 29px;
+}
+
+.friend-search{
+    display: flex;
+    padding-left: 10px;
+    Width:402px;
+    Height:42px;
+    gap:10px;
+    border-radius: 10px;
+    align-items: center;
+}
+.selected-friends{
+    display: flex;
+    width: 402px;
+    height: 16px;
+    gap: 10px;
+    color: #81818D;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: Bold;
+}
+.list-friend-choices{
+    display: flex;
+    flex-direction: column;
+    width: 402px;
+    height: 432px;
+    gap: 16px;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    scrollbar-color: #543C52 #E9E5EE; 
+}
+
+.letter-A{
+    display: flex;
+    flex-direction: column;
+    width: 402px;
+    height: 208px;
+    gap: 8px;
+}
+.letter-A p{
+    width: 402px;
+    height: 14px;
+    font-style: Medium;
+    font-size: 12px;
+    font-weight: 500;
+    color: #070A1C;
+}
+.friends-list{
+    display: flex;
+    width: 402px;
+    height: 186px;
+    flex-direction: column;
+
+}
+.friend-choice{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 402px;
+    height: 62px;
+    gap: 16px;
+
+}
+.friend-choice-last{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 402px;
+    height: 62px;
+    gap: 16px;
+
+}
+.new-group-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 402px;
+    height: 40px;
+    gap: 16px;
+    justify-content: end;
+}
+
+.cancel-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 40px;
+    border-radius: 1234px;
+    background-color: #FFFFFF;
+    border: 1px solid #543C52;
+    color: #543C52;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.create-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 40px;
+    border-radius: 1234px;
+    border: none;
+    background-color: #543C52;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.friend-choice-tick{
+    display: flex;
+    width: 312px;
+    height: 20px;
+    background-color: #FFFFFF;
+    justify-content: space-between;
+    align-items: center;
+}
+.tick-icon{
+    width: 20px;
+    height: 20px;
+}
+.cancel-group-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 102px;
+    height: 40px;
+    border-radius: 1234px;
+    background-color: #FFFFFF;
+    border: 1px solid #543C52;
+    color: #543C52;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}

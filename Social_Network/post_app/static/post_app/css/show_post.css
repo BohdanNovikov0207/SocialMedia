@@ -33,14 +33,13 @@ hr{
 }
 .all-text-post{
     display: flex;
-
     flex-direction: column;
     gap: 16px;
     justify-content: start;
     margin-top: 16px;
     margin-left: 16px;
-
 }
+
 .post-title{
     display: flex;
     width: 923px;

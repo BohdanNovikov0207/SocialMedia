@@ -1,0 +1,142 @@
+@font-face {
+  font-family: GT Walsheim Pro;
+  src: url("../../fonts/GTWalsheimProRegular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: GT Walsheim Pro;
+}
+.chat-side-panel{
+    display: flex;
+    flex-direction: column;
+    width: 351px;
+    height: 834px;
+    gap: 8px;
+}
+
+.create-group{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 351px;
+    min-height: 40px;
+    border-radius: 1234px;
+    background-color: #543C52;
+    color: #FFFFFF;
+    gap: 8px;
+    border: none;
+    margin-top: 10px;
+    position: sticky;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.chat-plus{
+    width: 20px;
+    height: 20px;
+}
+.create-group-text{
+    font-weight: 500;
+}
+
+.chat-list{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 834px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #CDCED2;
+    gap: 24px;
+    align-items: center;
+    padding-left: 16px;
+ 
+}
+
+.contacts{
+    display: flex;
+    width: 318px;
+    height: 23px;
+    margin-top: 10px;
+  
+}
+.contacts-icon{
+    width: 16px;
+    height: 13px;
+    background-color: transparent;
+    align-self: center;
+}
+.contacts-text{
+    font-weight: 500;
+    align-self: center;
+    color: #81818D;
+    margin-left: 8px;
+}
+
+.chat-search{
+    display: flex;
+    padding-left: 10px;
+    Width:318px;
+    Height:42px;
+    gap:6px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    align-items: center;
+}
+.search-icon{
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    align-self: center;
+}
+.search-input{
+    display: flex;
+    padding-right: 5px;
+    width: 100%;
+    height:100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.chat-friends{
+    display: flex;
+    flex-direction: column;
+    width: 318px;
+    height: 666px;
+    gap: 16px; 
+    overflow-x: hidden;
+    scrollbar-color: #543C52 #E9E5EE;  
+}
+
+.friend{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
+    width: 318.87px;
+    height: 46px;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+.friend-avatar{
+    width: 46px;
+    height: 46px;
+    border: none;
+}
+.friend-name{
+    font-size: 16px;
+    font-weight: bold;
+    color: #070A1C;
+    text-transform: capitalize;
+}

@@ -9,10 +9,12 @@ from django.http import JsonResponse, HttpRequest
 from post_app.models import Post
 from django.core.paginator import Paginator
 from django.template.loader import render_to_string
+from django.urls import reverse_lazy
 
 # Create your views here.
 
 class HomeView(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy("AuthPage")
     model = Post
     template_name = 'home_app/main.html'
     context_object_name = 'posts'
@@ -56,7 +58,7 @@ class HomeView(LoginRequiredMixin, ListView):
         return super().get(request, *args, **kwargs)
 
 
-class FirstLoginView(View):
+class FirstLoginView(LoginRequiredMixin, View):
     def post(self, request: HttpRequest, *args, **kwargs):
         form = FirstLoginForm(request.POST)
 

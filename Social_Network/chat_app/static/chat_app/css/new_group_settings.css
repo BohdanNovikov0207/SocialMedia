@@ -1,0 +1,402 @@
+.overlay-set{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+}
+
+.new-group-container1 {
+    background-color: #ffffff;
+    flex-direction: column;
+    display: flex;
+    width: 490px;
+    height: 635px;
+    gap: 24px;
+    border-radius: 20px;
+    border: none;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.close-button{
+    margin-top: 24px;
+    position: relative;
+    display: flex;
+    align-items: start;
+    width: 402px;
+    height: 20px;
+    justify-content: end;    
+}
+.close-button img{
+    width: 20px;
+    height: 20px;
+}
+
+.new-group-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 402px;
+    height: 39px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #070A1C;
+    width: 402px;
+    height: 29px;
+}
+
+.new-group-name{
+    display: flex;
+    flex-direction: column;
+    width: 402px;
+    height: 66px;
+    gap: 6px;
+}
+
+.new-group-name p{
+    width: 45px;
+    height: 18px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #070A1C;
+    font-style: regular;
+}
+.new-group-name input{
+    width: 402px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    padding-left: 10px;
+}
+
+.group-photo{
+    display: flex;
+    flex-direction: column;
+    width: 402px;
+    height: 90px;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.group-photo-preview{
+    display: flex;
+    width: 46px;
+    height: 46px;
+}
+
+.upload-photo-2{
+    display: flex;
+    width: 279px;
+    height: 20px;
+    gap: 24px;
+    flex-direction: row;
+}
+
+.upload-icon{
+    display: flex;
+    width: 129px;
+    height: 20px;
+    flex-direction: row;
+    justify-content:space-between;
+}
+.plus-icon{
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+.upload-icon p{
+    display: flex;
+    width: 101px;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #543C52;
+}
+
+.upload-photo{
+    display: flex;
+    width: 126px;
+    height: 20px;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.photo-icon{
+
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+}
+.upload-photo p{
+    display: flex;
+    width: 98px;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #543C52;
+}
+
+.new-group-friends{
+    display: flex;
+    flex-direction: column;
+    width: 402px;
+    height: 192px;
+    gap: 16px;
+}
+.new-group-friends p{
+    display: flex;
+    width: 402px;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #070A1C;
+    font-style: regular;
+}
+.all-new-group-friends{
+    display: flex;
+    flex-direction: column;
+    width: 402px;
+    height: 158px;
+    gap: 10px;
+}
+
+.new-group-friend{
+    display: flex;
+    width: 402px;
+    height: 42px;
+    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.friend-avatar{
+    display: flex;
+    width: 46px;
+    height: 46px;
+}
+.new-group-friend p{
+    display: flex;
+    width: 334px;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #070A1C;
+    font-style: medium;
+}
+
+.delete-friend{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.friend-choice{
+    display: flex;
+    width: 402px;
+    height: 46px;
+    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+
+}
+.new-group-buttons{
+    display: flex;
+    width: 402px;
+    height: 40px;
+    gap: 16px;
+    flex-direction: row;
+    justify-content: end;
+}
+.chat-back{
+    display: flex;
+    width: 80px;
+    height: 40px;
+    border-radius: 1234px;
+    border: 2px solid #543C52;
+    justify-content: center;
+    align-items: center;
+    color: #543C52;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.chat-create{
+    display: flex;
+    width: 134px;
+    height: 40px;
+    border-radius: 1234px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #543C52;
+    cursor: pointer;
+}
+.delete-friend-container{
+    display: flex;
+    width: 344px;
+    height: 46px;
+    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* EDIT_CHAT.HTML */
+.overlay-edit{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+.admin-edit-cont{
+    display: flex;
+    background-color: #E9E5EE;
+    gap:16px;
+    flex-direction: column;
+    width: 343px;
+    height: 176px;
+    border-radius: 10px;
+    border: none;
+}
+
+.dots-cont{
+    display: flex;
+    width: 311px;
+    height: 20px;
+    gap:10px;
+    justify-content: end;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.dots-icon{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.media{
+    display: flex;
+    width: 74px;
+    height: 20px;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-left: 10px;
+}
+.media-icon{
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+.media-text{
+    display: flex;
+    width: 44px;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #070A1C;
+    font-style: medium;
+}
+.edit-group{
+    display: flex;
+    width: 170px;
+    height: 20px;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+.edit-icon{
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+
+.edit-text{
+    display: flex;
+    width: 129px;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #070A1C;
+    font-style: medium;
+    white-space: nowrap;
+}
+.line{
+    display: flex;
+    width: 311px;
+    height: 1px;
+    background-color: #CDCED2;
+    margin-left: 10px;
+}
+.delete-group{
+    display: flex;
+    width: 128px;
+    height: 20px;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+.delete-icon{
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+
+.nonadmin-cont{
+    display: flex;
+    background-color: #E9E5EE;
+    gap:16px;
+    flex-direction: column;
+    width: 343px;
+    height: 140px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 16px;
+}
+.leave-group{
+    display: flex;
+    width: 146px;
+    height: 20px;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+.leave-text{
+    display: flex;
+    width: 116px;
+    height: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #070A1C;
+    font-style: medium;
+     white-space: nowrap;
+}
+.leave-icon{
+    display: flex;
+    width: 20px;
+    height: 20px;
+}

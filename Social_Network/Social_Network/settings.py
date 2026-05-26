@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home_app',
     'post_app',
-    'user_app'
+    'user_app',
+    'chat_app'
 ]
 
 AUTH_USER_MODEL = 'user_app.User'
@@ -65,7 +66,8 @@ TEMPLATES = [
             BASE_DIR / "templates",
             BASE_DIR / "post_app" / "templates",
             BASE_DIR / "home_app" / "templates",
-            BASE_DIR / "user_app" / "templates"
+            BASE_DIR / "user_app" / "templates",
+            BASE_DIR / "chat_app" / "templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -131,7 +133,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "home_app" / "static" / "home_app",
     BASE_DIR / "user_app" / "static" / "user_app",
-    BASE_DIR / "post_app" / "static" / "post_app"
+    BASE_DIR / "post_app" / "static" / "post_app",
+    BASE_DIR / "chat_app" / "static" / "chat_app",
 ]
 MEDIA_URL = '/media/'  
 MEDIA_ROOT = BASE_DIR / 'media'

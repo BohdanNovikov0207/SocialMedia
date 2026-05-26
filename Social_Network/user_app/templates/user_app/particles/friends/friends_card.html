@@ -1,0 +1,29 @@
+{% load static %}
+{% for person in users %}
+        <article class="friend_request" data-person-id="{{ person.id }}">
+            <div class="avat-request">
+                <img src="{% static 'home_app/images/avatar2.png' %}">
+            </div>
+            <h3>{% firstof person.last_name person.email %}</h3>
+            <p>{{ person.username }}</p>
+                {% if section == "requests" %}
+                    <div class="request-buttons">
+                        <button type="button" class="accept-request" data-friend-action data-url="{% url 'friends_action' person.id 'accept' %}">Підтвердити</button>
+                        <button type="button" class="delete-request" data-friend-action data-url="{% url 'friends_action' person.id 'delete' %}">Відхилити</button>
+                    </div>
+            {% elif section == "recommendations" %}
+                <div class="request-buttons">
+                    <button type="button" class="add-recommendation" data-friend-action data-url="{% url 'friends_action' person.id 'redirect' %}">Додати</button>
+                    <button type="button" class="delete-request" data-friend-action data-url="{% url 'friends_action' person.id 'dismiss' %}">Видалити</button>
+                </div>
+            {% else %}
+                <div class="request-buttons">
+                    <button type="button" class="message-button" >Повідомлення</button>
+                    <button type="button" class="delete-request" data-friend-action data-url="{% url 'friends_action' person.id 'delete' %}">Видалити</button>
+                </div>
+            {% endif %}
+        </article>
+
+{% empty %}
+ <!--<p class="empty-friends">Порожньо</p> -->
+{% endfor %} 

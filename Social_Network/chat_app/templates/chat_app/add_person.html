@@ -1,0 +1,74 @@
+{% load static %} 
+<div class="overlay-add-new" id="overlay-new">
+    <div class="new-group-container">
+        <div class="close-button">
+            <img id="close-button-group" src="{% static 'post_app/images/cross.png' %}" alt="">
+        </div>
+        <div class="new-group-text">
+            <h2><strong>Додати учасника</strong></h2>
+        </div>
+        <div class="friend-search">
+            <img src="{% static 'images/search.png' %}" class="search-icon">
+            <input type="text" class="search-input" placeholder="Пошук">
+        </div>
+        <span class="selected-friends">Вибрано: 3</span>
+        <div class="list-friend-choices">
+            <div class="letter-A">
+                <p>A</p>
+                <div class="friends-list">
+                    <div class="friend-choice-last">
+                        <img src="{% static 'home_app/images/avatar4.png' %}" class="friend-avatar">
+                        <div class="friend-choice-tick">
+                            <span>Acob Jones</span>
+                            <img src="{% static 'images/checkbox_marked.png' %}" class="tick-icon">
+                        </div>
+                    </div>
+                    <div class="friend-choice-last">
+                        <img src="{% static 'home_app/images/avatar4.png' %}" class="friend-avatar">
+                        <div class="friend-choice-tick">
+                            <span>Acob Jones</span>
+                            <img src="{% static 'images/checkbox_unmarked.png' %}" class="tick-icon">
+                        </div>
+                    </div>
+                    <div class="friend-choice-last">
+                        <img src="{% static 'home_app/images/avatar4.png' %}" class="friend-avatar">
+                        <div class="friend-choice-tick">
+                            <span>Acob Jones</span>
+                            <img src="{% static 'images/checkbox_unmarked.png' %}" class="tick-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="letter-A">
+                <p>B</p>
+                <div class="friends-list">
+                    <div class="friend-choice-last">
+                        <img src="{% static 'home_app/images/avatar4.png' %}" class="friend-avatar">
+                        <div class="friend-choice-tick">
+                            <span>Acob Jones</span>
+                            <img src="{% static 'images/checkbox_marked.png' %}" class="tick-icon">
+                        </div>
+                    </div>
+                    <div class="friend-choice-last">
+                        <img src="{% static 'home_app/images/avatar4.png' %}" class="friend-avatar">
+                        <div class="friend-choice-tick">
+                            <span>Acob Jones</span>
+                            <img src="{% static 'images/checkbox_unmarked.png' %}" class="tick-icon">
+                        </div>
+                    </div>
+                    <div class="friend-choice-last">
+                        <img src="{% static 'home_app/images/avatar4.png' %}" class="friend-avatar">
+                        <div class="friend-choice-tick">
+                            <span>Acob Jones</span>
+                            <img src="{% static 'images/checkbox_marked.png' %}" class="tick-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-group-buttons">
+            <button class="cancel-group-button" id="cancel-group-button"><strong>Скасувати</strong></button>
+            <button class="create-button" id="create-button"><strong>Зберегти</strong></button>
+        </div>
+    </div>
+</div>

@@ -14,6 +14,9 @@
 
 .see-all{
     color:#543C52;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
 }
 .top-text{
     display: flex;
@@ -36,15 +39,15 @@
     gap: 16px;
 }
 
-.f-pages{
-    display: inline-block;
-    width: max-content;
-    height: 26px;
-    text-decoration: none;
-    color: #81818D;
+#friends-load-sentinel{
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-top: 10px;
+    clear: both;
 }
 
-.f-pagesG{
+.chosen-section{
     display: inline-block;
     width: max-content;
     text-decoration: none;
@@ -54,11 +57,20 @@
     border-bottom: 2px solid #070A1C;
 }
 
+.unchosen-section{
+    display: inline-block;
+    width: max-content;
+    height: 26px;
+    text-decoration: none;
+    color: #81818D;
+    cursor: pointer;
+}
+
 .all_friends{
     display: flex;
     flex-direction: column;
-    width: 923px;
-    height: 1545px;
+    min-width: 923px;
+    min-height: 1545px;
     gap: 8px;
     overflow-y: auto;
 }
@@ -83,12 +95,25 @@
 }
 .in-requests_friends{
     display: flex;
-    flex-direction: row;
-    width: 586px;
-    height: 263px;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 883px;
+    min-width: 883px;
+    max-height: 534px;
     gap: 8px;
     margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding-bottom: 12px;
 }
+
+.scrollable{
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+
+
 .friend_request{
     display: flex;
     flex-direction: column;
@@ -152,7 +177,8 @@
     flex-direction: row;
     width: max-content;
     height: 40px;
-    gap:16px
+    gap:16px;
+    
 }
 .accept-request{
     display: flex;
@@ -164,15 +190,17 @@
     width: 111px;
     height: 40px;
 }
-.add-recomendation{
+.add-recommendation{
     display: flex;
     justify-content: center;
     align-items: center;
     color:#FFFFFF;
+     border: 1px solid #543C52;
     background-color:#543C52;
     border-radius: 1234px;
     width: 79px;
     height: 40px;
+    cursor: pointer;
 }
 .delete-request{
     display: flex;
@@ -180,18 +208,21 @@
     align-items: center;
     color:#543C52;
     background-color:#FFFFFF;
+    border: 1px solid #543C52;
     border-radius: 1234px;
     width: 94px;
     height: 40px;
+    cursor: pointer;
 }
-.recomend_friends{
+.friends_section{
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF;
     border-radius: 10px;
     border: 1px solid #CDCED2;
-    width: 923px;
-    height: 600px;
+    max-width: 923px;
+    height: 329px;
+    height: auto;
     gap:8px;
     margin-top: 10px;
 }
@@ -205,3 +236,12 @@
     width: 123px;
     height: 40px;
 }
+.empty-friends{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(63, 63, 63) ;
+    width: 73px;
+    height: 20px;
+}
+

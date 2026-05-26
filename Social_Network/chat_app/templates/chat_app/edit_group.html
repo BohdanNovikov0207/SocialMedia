@@ -1,0 +1,62 @@
+{% load static %}
+<div class="overlay-edit" id="overlay-edit">
+    <div class="new-group-container1">
+    
+        <div class="close-button">
+            <img id="close-button-group" src="{% static 'post_app/images/cross.png' %}" alt="Закрыть">
+        </div>
+        
+        <div class="new-group-text">
+            <h2><strong>Редагування групи</strong></h2>
+        </div>
+        
+        <div class="new-group-name">
+            <p>Назва</p>
+            <input type="text" id="group-name-input" placeholder="New group">
+        </div>
+        
+        <div class="group-photo">
+            <img src="{% static 'home_app/images/avatar6.png' %}" class="group-photo-preview" >
+            <div class="upload-photo-2">
+                <div class="upload-icon">
+                    <img src="{% static 'images/plus_noback.png' %}" class="plus-icon"> 
+                    <p>Додайте фото</p>
+                </div>
+                <div class="upload-photo">
+                    <img src="{% static 'images/post.png' %}" class="photo-icon"> 
+                    <p>Оберіть фото</p>
+                </div>
+            </div>
+        </div> 
+        <div class="new-group-friends">
+            <p>Учасники</p>
+            <div class="all-new-group-friends">
+                <div class="friend-choice">
+                    <img src="{% static 'home_app/images/avatar6.png' %}" class="friend-avatar">
+                    <div class="delete-friend-container">
+                        <span>Aeslie Alexander</span>
+                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-friend">
+                    </div>
+                </div>
+                <div class="friend-choice">
+                    <img src="{% static 'home_app/images/avatar6.png' %}" class="friend-avatar">
+                    <div class="delete-friend-container">
+                        <span>Aeslie Alexander</span>
+                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-friend">
+                    </div>
+                </div>
+                <div class="friend-choice">
+                    <img src="{% static 'home_app/images/avatar6.png' %}" class="friend-avatar">
+                    <div class="delete-friend-container">
+                        <span>Aeslie Alexander</span>
+                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-friend">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="new-group-buttons">
+            <button class="chat-back">Назад</button>
+            <button class="chat-create">Зберегти зміни</button>
+        </div>
+    </div>
+</div>

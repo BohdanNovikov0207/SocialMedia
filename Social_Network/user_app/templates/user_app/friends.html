@@ -10,15 +10,16 @@
 
 {% block side-panel %}
     <div class="friends-pages">
-        <a href="" class="f-pagesG">Головна</a>
-        <a href="" class="f-pages">Запити</a>
-        <a href="" class="f-pages">Рекомендації</a>
-        <a href="" class="f-pages">Всі друзі</a>
+        <a class= "chosen-section" id="main-friends">Головна</a>
+        <a class= "unchosen-section" id="requests-friends">Запити</a>
+        <a class= "unchosen-section" id="recommended-friends">Рекомендації</a>
+        <a class= "unchosen-section" id="all-friends">Всі друзі</a>
     </div>
 {% endblock %}
 
 {% block content-panel %}
-<div class="all_friends">
+
+<!-- <div class="all_friends">
     <div class="requests_friends">
         <div class="top-text">
             <p class="friend-titles smaller-text">Запити</p>
@@ -70,7 +71,7 @@
                     <p class="name-friend smaller-text ">@thelili</p>
                 </div>
                 <div class="request-buttons">
-                    <button class="add-recomendation">Додати</button>
+                    <button class="add-recomendation"></button>
                     <button class="delete-request"><strong>Видалити</strong></button>
                 </div>
             </div>
@@ -222,6 +223,16 @@
          
     </div>
     
-</div>
+</div> -->
+{% include "user_app/particles/friends/friends_card.html"%}
+{% include "user_app/particles/friends/friends_home.html"%}
+{% include "user_app/particles/friends/friends_section.html"%}
+
 {% endblock %}
 
+
+{% block scripts %}
+    <script type="module" src="{% static 'user_app/js/requests.js' %}"></script>
+    <script type="module" src="{% static 'user_app/js/friends_sections.js' %}"></script>
+    
+{% endblock %}

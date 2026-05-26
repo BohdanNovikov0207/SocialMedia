@@ -1,0 +1,116 @@
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+    height: 327px;
+    background-color:  rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 1px #CDCED2 solid;
+    gap: 16px;
+    margin-top: 10px;
+}
+.information{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 350px;
+    height: 55px;
+}
+
+.posts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 7px;
+    width: 116px;
+    height: 48px;
+    border-right: 1px rgb(68, 68, 68);
+}
+.bold-text {
+  font-family: GT Walsheim Pro, sans-serif;
+  font-weight: 700;
+}
+.gray-color{
+    color: #81818D;
+}
+.readers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 116px;
+    height: 48px;
+    border-left: 1px #81818D solid;
+    border-right: 1px #81818D solid;
+}
+
+.friends{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 116px;
+    height: 48px;
+}
+
+.prof-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+    height: 175px;
+    gap:24px;
+}
+.lina-pfp img{
+    display: flex;
+    align-items: center;
+    width: 96px;
+    height: 96px;
+}
+
+.nickname{
+    gap: 10px;
+    width: 350px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.request-buttons{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: max-content;
+    height: 40px;
+    gap:16px;
+    
+}
+.accept-request{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#FFFFFF;
+    background-color:#543C52;
+    border-radius: 1234px;
+    width: 111px;
+    height: 40px;
+    cursor: pointer;
+}
+.delete-request{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#543C52;
+    background-color:#FFFFFF;
+    border: 1px solid #543C52;
+    border-radius: 1234px;
+    width: 94px;
+    height: 40px;
+    cursor: pointer;
+}
