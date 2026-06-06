@@ -149,7 +149,7 @@ class FriendActionView(LoginRequiredMixin, View):
         
         if action == 'redirect':
             # (Используем f-строку, чтобы не зависеть от названий в urls.py)
-            target_url = f'profile/{user_id}/'
+            target_url = f'/user/profile/{user_id}/'
             
             # Возвращаем JSON с адресом для JavaScript
             return JsonResponse({'status': 'redirect', 'redirect_url': target_url})
@@ -180,6 +180,7 @@ class ProfileView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)   
         context["user_id"] = self.kwargs.get('user_id')
+        context["user_profile"] = User.objects.get(id= self.kwargs.get('user_id'))
         return context
     
     def get_queryset(self):

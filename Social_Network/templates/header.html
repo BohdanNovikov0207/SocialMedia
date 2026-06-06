@@ -6,23 +6,23 @@
     {% if request.path != "/user/auth" %}
     <div class="nav">
         <nav class="nav-pages">
-            <a class="inner-container-nav" href="{% url 'MainPage' %}">
+            <a class="inner-container-nav" href="{% url 'MainPage' %}" {% if request.path == "/" %}style="background-color: #E9E5EE;"{% endif %}>
                 <img src="{% static 'images/home.png' %}" alt="">
                 <span class="bold-text">Головна</span>
             </a>
-            <a class="inner-container-nav" href="{% url 'PostPage' %}">
+            <a class="inner-container-nav" href="{% url 'PostPage' %}" {% if request.path == "/posts/" %}style="background-color: #E9E5EE;"{% endif %}>
                 <img src="{% static 'images/post.png' %}" alt="">
                 <span class="bold-text">Мої публікації</span>
             </a>
-            <a class="inner-container-nav" href="{% url 'FriendsPage' %}">
+            <a class="inner-container-nav" href="{% url 'FriendsPage' %}" {% if request.path == "/user/friends/" %}style="background-color: #E9E5EE;"{% endif %}>
                 <img src="{% static 'images/people.png' %}" alt="">
                 <span class="bold-text">Друзі</span>
             </a>
-            <a class="inner-container-nav" href="{% url 'ChatsPage' %}">
+            <a class="inner-container-nav" href="{% url 'ChatsPage' %}" {% if request.path == "/chats/" %}style="background-color: #E9E5EE;"{% endif %}>
                 <img src="{% static 'images/chat.png' %}" alt="">
                 <span class="bold-text">Чати</span>
             </a>
-            <a class="inner-container-nav" href="{% url 'SettingsPage' %}">
+            <a class="inner-container-nav" href="{% url 'SettingsPage' %}" {% if request.path == "/user/settings/" %}style="background-color: #E9E5EE;"{% endif %}>
                 <img src="{% static 'images/settings.png' %}" alt="">
                 <span class="bold-text">Налаштування</span>
             </a>

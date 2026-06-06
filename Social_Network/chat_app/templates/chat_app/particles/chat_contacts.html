@@ -5,13 +5,14 @@
     <!-- <button type="button">Створити груповий чат</button> -->
     <!-- Відкриваємо блок списку контактів. -->
         <!-- Перебираємо друзів поточного користувача. -->
-        {% for friend in friends %}
+        {% for friend in friends %} 
             <div class="friend">
                 <img class="friend-avatar" src="{% static 'home_app/images/avatar2.png' %}">
                 <!-- Показуємо кнопку відкриття чату з другом. -->
                 <span class="friend" class="chat-user-button" data-chat-user="{{ friend.id }}" data-chat-username="{{ friend.email }}">
                     <!-- Показуємо username або email друга. -->
-                    <span class="friend-name">{{ friend.last_name }}</span>
+                        <span class="friend-name">{{ friend.last_name }}</span>
+                    
                 </span>
             </div>
         <!-- Якщо друзів немає. -->

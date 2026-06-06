@@ -75,24 +75,40 @@ mainButton.addEventListener('click',
         requestsSection.style.display = "flex"
         recommendedSection.style.display = "flex"
         friendsSection.style.display = "flex"
+        mainButton.className = "chosen-section"
+        requestsButton.className = "unchosen-section"
+        recommendedButton.className = "unchosen-section"
+        friendsButton.className = "unchosen-section"
     })
 
 
 requestsButton.addEventListener('click',
     function (){
         allRequests.click()
+        mainButton.className = "unchosen-section"
+        requestsButton.className = "chosen-section"
+        recommendedButton.className = "unchosen-section"
+        friendsButton.className = "unchosen-section"
     }
 )
 
 recommendedButton.addEventListener('click',
     function (){
         allRecommendations.click()
+        mainButton.className = "unchosen-section"
+        requestsButton.className = "unchosen-section"
+        recommendedButton.className = "chosen-section"
+        friendsButton.className = "unchosen-section"
     }
 )
 
 friendsButton.addEventListener('click',
     function (){
         allFriends.click()
+        mainButton.className = "unchosen-section"
+        requestsButton.className = "unchosen-section"
+        recommendedButton.className = "unchosen-section"
+        friendsButton.className = "chosen-section"
     }
 )
 
@@ -102,7 +118,7 @@ let allFriends = document.getElementById("all_friends")
 
 allRequests.addEventListener('click', () => {
 
-    requestsSection.style.display = "none"
+    requestsSection.style.display = "flex"
     recommendedSection.style.display = "none"
     friendsSection.style.display = "none"
 })
@@ -110,7 +126,7 @@ allRequests.addEventListener('click', () => {
 allRecommendations.addEventListener('click', () => {
 
     requestsSection.style.display = "none"
-    recommendedSection.style.display = "none"
+    recommendedSection.style.display = "flex"
     friendsSection.style.display = "none"
 })
 
@@ -118,6 +134,6 @@ allFriends.addEventListener('click', () => {
 
     requestsSection.style.display = "none"
     recommendedSection.style.display = "none"
-    friendsSection.style.display = "none"
+    friendsSection.style.display = "flex"
 })
 

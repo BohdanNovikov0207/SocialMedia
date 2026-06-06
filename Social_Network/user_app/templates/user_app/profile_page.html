@@ -18,8 +18,8 @@
             <img src="{% static 'home_app/images/avatar1.png' %}">
         </div>
         <div class="nickname">
-            <span class="bold-text">Yehor Aung</span>
-            <span class="bold-text">@thelili</span>
+            <span class="bold-text">{{ user_profile.last_name }}</span>
+            <span class="bold-text">{{ user_profile.username }}</span>
         </div>
     </div>
     <div class="information">
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="request-buttons">
-        <button class="accept-request" data-friend-action data-url="{% url 'friends_action' user_id 'add' %}">Підтвердити</button>
+        <button class="accept-request" id="accept-request" data-friend-action data-url="{% url 'friends_action' user_id 'add' %}">Підтвердити</button>
         <button class="delete-request" data-friend-action data-url="{% url 'friends_action' user_id 'dismiss' %}"><strong>Відхилити</strong></button>
     </div>
 </div>
@@ -69,8 +69,7 @@
                     .then(res => res.json())
                     .then(data => {
                         console.log('Успешно отправлено!');
-                        // Меняем текст кнопки после успешной отправки
-                        button.textContent = 'Надіслано';
+                        window.location.href = "/user/friends/"
                     })
                     .catch(err => console.error('Ошибка:', err));
                 });

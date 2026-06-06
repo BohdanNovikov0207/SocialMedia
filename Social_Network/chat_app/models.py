@@ -16,3 +16,13 @@ class Chat(models.Model):
     
     def __str__(self):
         return self.name or f"Chat {self.id}"
+    
+class Message(models.Model):
+    text = models.TextField()
+    chat = models.ForeignKey(Chat, on_delete= models.CASCADE, related_name= 'messages')
+    sender = models.ForeignKey(user, on_delete= models.CASCADE, related_name= 'sent_messages')
+    readers = models.ManyToManyField(user, blank= True, related_name= 'read_messages')
+    created_at = models.DateTimeField(auto_now_add= True)
+
+    def __str__(self):
+        return self.text[:30]

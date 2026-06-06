@@ -55,6 +55,7 @@
     color: #070A1C;
     padding-bottom: 6px;
     border-bottom: 2px solid #070A1C;
+    cursor: pointer;
 }
 
 .unchosen-section{

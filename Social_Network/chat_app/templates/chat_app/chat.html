@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block meta %}
-    <meta name="csrf-token" contetnt="{{ csrf_token }}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
 {% endblock %}
 
 {% block title %}Чат{% endblock %}
@@ -42,8 +42,8 @@
 <div class="chat-content">
     <div class="chat-text-center">
         <div class="chat-text-container">
-            <h2>Почніть нове спілкування</h2>
-            <p>Оберіть контакт зі списку ліворуч<br> або створіть групу, щоб почати спілкування</p>
+            <h2 id="chat-title">Почніть нове спілкування</h2>
+            <p id="chat-status">Оберіть контакт зі списку ліворуч<br> або створіть групу, щоб почати спілкування</p>
         </div>
     </div>
 </div>
@@ -56,7 +56,7 @@
                 <span>Дивитись всі</span>
             </div>
         </div>
-        
+        {% comment %}
         <div class="chat-messages-list">
             <div class="in-per">
                 <div class="avat">
@@ -133,6 +133,8 @@
                 </div>
             </div>  
         </div>
+        {% endcomment %}
+        {% include "chat_app/particles/chat_sidebar.html" %}
     </div>
 
     <div class="group-chat">
@@ -248,5 +250,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{% static 'chat_app/js/chat.js' %}"></script>
+    <script type="module" src="{% static 'chat_app/js/chat.js' %}"></script>
 {% endblock %}

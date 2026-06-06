@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,7 +82,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Social_Network.wsgi.application'
+ASGI_APPLICATION = 'Social_Network.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -89,7 +96,11 @@ WSGI_APPLICATION = 'Social_Network.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+#        'USER': 'super',
+#        'PASSWORD': 'kC9gN3bqA',
+#        'HOST': 'WorldITSocialNetwork-5274.postgres.pythonanywhere-services.com',
+#        'PORT': '15274'
     }
 }
 

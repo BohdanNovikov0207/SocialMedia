@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     width: 351px;
-    height: 834px;
+    height: 100vh;
     gap: 8px;
 }
 
@@ -47,14 +47,14 @@
     display: flex;
     flex-direction: column;
     width: 350px;
-    height: 834px;
+    height: 100vh;
     border-radius: 10px;
     background-color: #FFFFFF;
     border: 1px solid #CDCED2;
     gap: 24px;
     align-items: center;
     padding-left: 16px;
- 
+    padding-top: 16px;
 }
 
 .contacts{
@@ -72,6 +72,7 @@
 }
 .contacts-text{
     font-weight: 500;
+    font-size: 20px;
     align-self: center;
     color: #81818D;
     margin-left: 8px;
@@ -139,4 +140,52 @@
     font-weight: bold;
     color: #070A1C;
     text-transform: capitalize;
+}
+
+.no-chats{
+    display: flex;
+    padding-left: 20px;
+    height: 20px;
+    color: #070A1C;
+     font-weight: 500;
+    font-size: 20px;
+}
+
+.chat-main {
+    /* Вмикаємо flex для центрування. */
+    display: flex;
+    /* Ставимо заголовок і статус вертикально. */
+    flex-direction: column;
+    /* Центруємо елементи по горизонталі. */
+    align-items: center;
+    /* Центруємо елементи по вертикалі. */
+    justify-content: center;
+}
+.chat-window {
+    /* Приховуємо форму й повідомлення за замовчуванням. */
+    display: none;
+    /* Розтягуємо вікно на ширину центрального блоку після відкриття. */
+    width: 100%;
+}
+.messages {
+    /* Задаємо висоту області повідомлень. */
+    height: 360px;
+    /* Додаємо рамку. */
+    border: 1px solid #dddddd;
+    /* Додаємо внутрішній відступ. */
+    padding: 10px;
+    /* Додаємо прокрутку. */
+    overflow-y: auto;
+    /* Враховуємо padding у розмірах. */
+    box-sizing: border-box;
+}
+
+/* Оформлюємо форму відправки. */
+.message-form {
+    /* Розміщуємо поле й кнопку поруч. */
+    display: flex;
+    /* Додаємо відступ між полем і кнопкою. */
+    gap: 8px;
+    /* Додаємо верхній відступ. */
+    margin-top: 10px;
 }

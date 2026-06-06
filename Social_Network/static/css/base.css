@@ -78,18 +78,18 @@ header{
     align-items: center;
     justify-content: center;
     font-size: medium;
-    height: 28px;
+    min-height: 28px;
     width: 154px;
     gap: 8px;
     text-decoration: none;
     color: inherit;
+    border-radius: 3px;
 }
 
 .inner-container-nav:hover{
     background-color: #E9E5EE;
-    border: 1px solid #000000;
     cursor: pointer;
-    border-radius: 5px;
+    border: none;
 }
 
 .inner-container-nav img{

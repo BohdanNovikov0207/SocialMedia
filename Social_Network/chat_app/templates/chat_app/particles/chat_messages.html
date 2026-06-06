@@ -1,7 +1,6 @@
 <!-- Відкриваємо блок особистих повідомлень. -->
-<section class="chat-block">
-    <!-- Показуємо заголовок блоку повідомлень. -->
-    <h2>Повідомлення</h2>
+{% load static %}
+<section class="chat-messages-list" id="chat-block">
     <!-- Перебираємо особисті чати поточного користувача. -->
     {% for chat in personal_chats %}
         <!-- Перебираємо користувачів конкретного чату. -->
@@ -9,10 +8,20 @@
             <!-- Пропускаємо поточного користувача. -->
             {% if person.id != request.user.id %}
                 <!-- Показуємо кнопку відкриття чату зі співрозмовником. -->
-                <button type="button" class="chat-user-button" data-chat-user="{{ person.id }}" data-chat-username="{{ person.email }}">
-                    <!-- Показуємо username або email співрозмовника. -->
-                    {{  person.email }}
-                </button>
+                <div class="in-per">
+                    <div class="avat">
+                        <img src="{% static 'home_app/images/avatar4.png' %}">
+                    </div>
+                    <div class="textall">
+                        <div class="text1">
+                            <span class="bold-text" data-chat-user="{{ person.id }}" data-chat-username="{{ person.email }}">{{ person.last_name }}</span>
+                            <span class="gray-color">9:41</span>
+                        </div>
+                        <div class="textelse">
+                            <span>Привіт! Як справи?</span>
+                        </div>
+                    </div>
+                </div>
             <!-- Закриваємо умову пропуску поточного користувача. -->
             {% endif %}
         <!-- Закриваємо цикл користувачів чату. -->
@@ -20,8 +29,7 @@
     <!-- Якщо особистих чатів немає. -->
     {% empty %}
         <!-- Показуємо порожній стан повідомлень. -->
-        <p>Чатів поки немає</p>
+        <p class="no-chats">Чатів поки немає</p>
     <!-- Закриваємо цикл чатів. -->
     {% endfor %}
 </section>
-
