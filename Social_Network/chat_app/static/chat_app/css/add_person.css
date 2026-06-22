@@ -16,8 +16,8 @@
     flex-direction: column;
     display: flex;
     width: 490px;
-    height: 777px;
-    gap: 24px;
+    min-height: 450px;
+    gap: 16px;
     border-radius: 20px;
     border: none;
     align-items: center;
@@ -53,6 +53,7 @@
 
 .friend-search{
     display: flex;
+    align-items: center;
     padding-left: 10px;
     Width:402px;
     Height:42px;
@@ -75,13 +76,22 @@
     display: flex;
     flex-direction: column;
     width: 402px;
-    height: 432px;
-    gap: 16px;
+    height: auto;
+    gap: 0px;
     overflow-y: auto; 
     overflow-x: hidden;
-    scrollbar-color: #543C52 #E9E5EE; 
+    scrollbar-width: thin;
+    scrollbar-color: #543C52 #E2E0E8; 
 }
-
+.group-letter {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    color: #070A1C;
+    padding-bottom: 8px;
+    text-align: left;
+    border-bottom: 1px solid #E2E0E8; 
+}
 .letter-A{
     display: flex;
     flex-direction: column;
@@ -100,15 +110,17 @@
 .friends-list{
     display: flex;
     width: 402px;
-    height: 186px;
+    height: auto;
     flex-direction: column;
 
 }
+
 .friend-choice{
     display: flex;
     align-items: center;
     flex-direction: row;
-    width: 402px;
+    justify-content: space-between;
+    width: 100%;
     height: 62px;
     gap: 16px;
 
@@ -117,11 +129,13 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    width: 402px;
+    justify-content: flex-start;
+    width: 100%;
     height: 62px;
     gap: 16px;
 
 }
+
 .new-group-buttons{
     display: flex;
     flex-direction: row;
@@ -160,7 +174,7 @@
     font-weight: 500;
     cursor: pointer;
 }
-.friend-choice-tick{
+.friend-choice-tick-add{
     display: flex;
     width: 312px;
     height: 20px;

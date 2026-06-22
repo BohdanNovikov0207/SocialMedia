@@ -16,11 +16,12 @@
     flex-direction: column;
     display: flex;
     width: 490px;
-    height: 777px;
+    min-height: 400px;
     gap: 24px;
     border-radius: 20px;
     border: none;
     align-items: center;
+    padding-bottom: 24px;
 }
 .close-button{
     margin-top: 24px;
@@ -49,6 +50,8 @@
     color: #000000;
     width: 402px;
     height: 29px;
+    margin-top: 20px;
+    margin-bottom: 16px;
 }
 
 .friend-search{
@@ -69,23 +72,32 @@
     font-size: 14px;
     font-weight: 500;
     font-style: Bold;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
-.list-friend-choices{
+.friends-list{
     display: flex;
     flex-direction: column;
     width: 402px;
-    height: 432px;
+    max-height: auto;
     gap: 16px;
     overflow-y: auto; 
     overflow-x: hidden;
     scrollbar-color: #543C52 #E9E5EE; 
+}
+.friends-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 16px;    
+    margin-bottom: 8px;  
 }
 
 .letter-A{
     display: flex;
     flex-direction: column;
     width: 402px;
-    height: 208px;
+    height: auto;
     gap: 8px;
 }
 .letter-A p{
@@ -99,7 +111,7 @@
 .friends-list{
     display: flex;
     width: 402px;
-    height: 186px;
+    height: auto;
     flex-direction: column;
 
 }
@@ -107,7 +119,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    width: 402px;
+    width: 390px;
     height: 62px;
     gap: 16px;
 
@@ -116,17 +128,18 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    width: 402px;
+    width: 100%;
     height: 62px;
     gap: 16px;
-
+    border-bottom: 1px solid #E9E5EE;
+    position: relative;
 }
 .new-group-buttons{
     display: flex;
     flex-direction: row;
     width: 402px;
     height: 40px;
-    gap: 16px;
+    gap: 10px;
     justify-content: end;
 }
 
@@ -161,11 +174,16 @@
 }
 .friend-choice-tick{
     display: flex;
-    width: 312px;
+    width: 20px;
     height: 20px;
-    background-color: #FFFFFF;
-    justify-content: space-between;
+    background-color: transparent;
     align-items: center;
+    flex-shrink: 0;
+    position: static ;
+    flex-shrink: 0;
+    justify-content: end;
+    margin-left: auto;
+    accent-color: #4a3b4c;
 }
 .tick-icon{
     width: 20px;

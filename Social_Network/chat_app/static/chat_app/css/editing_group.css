@@ -16,12 +16,15 @@
     flex-direction: column;
     display: flex;
     width: 490px;
-    height: 635px;
+    max-height: 669px;
+    height: auto;
+    min-height: 442px;
     gap: 24px;
     border-radius: 20px;
     border: none;
     align-items: center;
-    overflow-y: auto;
+    overflow-y: hidden;
+    padding-bottom: 16px;
 }
 
 .close-button{
@@ -148,9 +151,14 @@
     display: flex;
     flex-direction: column;
     width: 402px;
-    height: 192px;
+    height: auto;
     gap: 16px;
+    border: 1px solid #CDCED2;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 8px;
 }
+
 .new-group-friends p{
     display: flex;
     width: 402px;
@@ -164,8 +172,9 @@
     display: flex;
     flex-direction: column;
     width: 402px;
-    height: 158px;
+    height: auto;
     gap: 10px;
+    overflow-y: auto;
 }
 
 .new-group-friend{
@@ -199,10 +208,11 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
+    
 }
 .friend-choice{
     display: flex;
-    width: 402px;
+    width: 390px;
     height: 46px;
     gap: 12px;
     flex-direction: row;
@@ -252,4 +262,25 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.add-member{
+    display: flex;
+    width: 165px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 20px;
+    gap:8px;
+    flex-direction: row;
+}
+.add-member span{
+    display: flex ;
+    color: #543C52;
+    width: 137px;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: Medium;
+    line-height: 100%;
+    letter-spacing: 0%;
 }

@@ -23,6 +23,16 @@
     align-items: center;
     overflow-y: auto;
 }
+.container-settings-friends{
+    display: flex;
+    flex-direction: column;
+    width: 402px;
+    height: auto; 
+    gap: 16px;    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .close-button{
     margin-top: 24px;
@@ -80,7 +90,7 @@
     flex-direction: column;
     width: 402px;
     height: 90px;
-    gap: 24px;
+    gap: 16px;
     justify-content: center;
     align-items: center;
 }
@@ -148,8 +158,12 @@
     display: flex;
     flex-direction: column;
     width: 402px;
-    height: 192px;
+    height: auto;
     gap: 16px;
+    border: 1px solid #CDCED2;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 8px;
 }
 .new-group-friends p{
     display: flex;
@@ -164,7 +178,7 @@
     display: flex;
     flex-direction: column;
     width: 402px;
-    height: 158px;
+    height:auto;
     gap: 10px;
 }
 
@@ -176,7 +190,14 @@
     flex-direction: row;
     align-items: center;
 }
-
+.user-name-text{
+    display: block;
+    height: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #070A1C;
+    font-style: medium;
+}
 .friend-avatar{
     display: flex;
     width: 46px;
@@ -202,7 +223,7 @@
 }
 .friend-choice{
     display: flex;
-    width: 402px;
+    width: 390px;
     height: 46px;
     gap: 12px;
     flex-direction: row;
@@ -217,6 +238,7 @@
     flex-direction: row;
     justify-content: end;
 }
+
 .chat-back{
     display: flex;
     width: 80px;
@@ -255,16 +277,15 @@
 }
 
 /* EDIT_CHAT.HTML */
-.overlay-edit{
-    position: fixed;
+.overlay-edit-chat{
     display: none;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     top: 0px;
-    left: 0px;
-    background-color: rgba(0, 0, 0, 0.5);
+    right: 0px;
+    background-color: transparent;
+    width: max-content;
     z-index: 9999;
 }
 .admin-edit-cont{
@@ -276,16 +297,29 @@
     height: 176px;
     border-radius: 10px;
     border: none;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .dots-cont{
     display: flex;
-    width: 311px;
+    width:auto;
     height: 20px;
     gap:10px;
+    position:relative;
     justify-content: end;
     align-items: center;
     margin-top: 16px;
+}
+
+.dots-cont-edit{
+    display: flex;
+    width:auto;
+    height: 20px;
+    gap:10px;
+    position:relative;
+    justify-content: end;
+    align-items: center;
+    margin-top: 8px;
 }
 
 .dots-icon{
@@ -294,7 +328,7 @@
     cursor: pointer;
 }
 
-/*.media{
+.media{
     display: flex;
     width: 74px;
     height: 20px;
@@ -401,4 +435,3 @@
     height: 20px;
 }
 
-*/

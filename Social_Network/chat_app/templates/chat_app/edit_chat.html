@@ -1,4 +1,4 @@
-{% comment %}
+
 {% load static %}
 <div class="overlay-edit-chat" id="overlay">
     <div class="admin-edit-cont">
@@ -6,6 +6,7 @@
             <img src="{% static 'chat_app/images/dots.png' %}"  class="dots-icon">
         </div>
         <div class="media">
+
             <img src="{% static 'images/post.png' %}" class="media-icon">
             <p class="media-text">Медіа</p>
         </div>   
@@ -19,20 +20,21 @@
             <p class="delete-text">Видалити чат</p>
         </div>
     </div>
-    <div class="nonadmin-cont">
-        <div class="dots-cont">
-            <img src="{% static 'chat_app/images/dots.png' %}"  class="dots-icon">
-        </div>
-        <div class="media">
-            <img src="{% static 'images/post.png' %}" class="media-icon">
-            <p class="media-text">Медіа</p>
-        </div>   
-        <div class="line"></div>
-        <div class="leave-group">
-            <img src="{% static 'chat_app/images/exit.png' %}" class="leave-icon">
-            <p class="leave-text">Покинути групу</p>
-        </div>
-    </div>    
+    {% comment %}
+        <div class="nonadmin-cont">
+            <div class="dots-cont">
+                <img src="{% static 'chat_app/images/dots.png' %}"  class="dots-icon">
+            </div>
+            <div class="media">
+                <img src="{% static 'images/post.png' %}" class="media-icon">
+                <p class="media-text">Медіа</p>
+            </div>   
+            <div class="line"></div>
+            <div class="leave-group">
+                <img src="{% static 'chat_app/images/exit.png' %}" class="leave-icon">
+                <p class="leave-text">Покинути групу</p>
+            </div>
+        </div>    
+    {% endcomment %}
 </div>
 
-{% endcomment %}

@@ -7,7 +7,53 @@ from channels.db import database_sync_to_async
 
 from .forms import MessageForm
 import json
+import datetime
 from chat_app.models import Chat, Message
+
+class PresenceConsumer(AsyncWebsocketConsumer):
+    online_users = set()
+    async def connect(self):
+        self.user = self.scope['user']
+        self.user_id = str(self.user.id)
+        self.group_name = "online_users"
+        await self.channel_layer.group_add(self.group_name, self.channel_name)
+        await self.accept()
+        self.online_users.add(self.user_id)
+        for user_id in self.online_users:
+            await self.send_status(user_id, 'online')
+        await self.channel_layer.group_send(
+            self.group_name,
+            {
+                "type": "presence_status",
+                "user_id": self.user_id,
+                "status": "online"
+            }
+        )
+    # Обробляємо подію зміни статуса в channel_layer
+    async def presence_status(self, event):
+        await self.send_status(event['user_id'], event['status'])
+
+    # Відправка одного статуса у браузер
+    async def send_status(self, user_id, status):
+        await self.send(text_data= json.dumps(
+            {
+                'user_id': user_id,
+                'status': status,
+                'online_users_count': list(self.online_users)
+            }
+        ))
+    # Обробляємо відключення користувача від presence websocket
+    async def disconnect(self, close_code):
+        self.online_users.discard(self.user_id)
+        await self.channel_layer.group_send(
+            self.group_name,
+            {
+                "type": "presence_status",
+                "user_id": self.user_id,
+                "status": "offline"
+            }
+        )
+        await self.channel_layer.group_discard(self.group_name, self.channel_name)
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -19,13 +65,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             return
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
         await self.accept()
-        await self.send(text_data= json.dumps(
-            {
-                "type": "connection_established",
-                "message": f"Зв`язок з {username} встановлено",
-                "username": username
-            }
-        ))
+        
 
     async def disconnect(self, close_code):
             await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
@@ -43,7 +83,9 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 'type': "send_message",
                 "id": message["id"],
                 "text": message["text"],
-                "sender": message["sender"]
+                "sender": message["sender"],
+                "created_at": datetime.datetime.now().strftime('%H:%M'),
+                "images": message["images"]
             }
         )
     #   
@@ -52,7 +94,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
             {
                 'id': text["id"],
                 'text': text["text"],
-                "sender": text["sender"]
+                "sender": text["sender"],
+                'current_user': self.scope["user"].username,
+                "created_at": text["created_at"],
+                "images": text.get("images", [])
             }
         ))
     # 
@@ -63,7 +108,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         return {
             'id': message.id,
             'text': message.text,
-            'sender': user.username
+            'sender': user.username,
+            "images": []
         }
     @database_sync_to_async
     def get_other_username(self):

@@ -8,20 +8,22 @@
             <!-- Пропускаємо поточного користувача. -->
             {% if person.id != request.user.id %}
                 <!-- Показуємо кнопку відкриття чату зі співрозмовником. -->
-                <div class="in-per">
+                <div class="in-per chat-button" data-chat-user="{{ person.id }}">
                     <div class="avat">
                         <img src="{% static 'home_app/images/avatar4.png' %}">
+                        <span class="status-ball" data-chat-user="{{ person.id }}"></span>
                     </div>
                     <div class="textall">
                         <div class="text1">
-                            <span class="bold-text" data-chat-user="{{ person.id }}" data-chat-username="{{ person.email }}">{{ person.last_name }}</span>
-                            <span class="gray-color">9:41</span>
+                            <span class="bold-text message-name" data-chat-username="{{ person.email }}">{{ person.last_name }}</span>
+                            <span class="gray-color">{{ chat.last_message_time|date:"d.m.Y" }}</span>
                         </div>
                         <div class="textelse">
-                            <span>Привіт! Як справи?</span>
+                            <span>{{ chat.last_message_text }}</span>
                         </div>
                     </div>
                 </div>
+                
             <!-- Закриваємо умову пропуску поточного користувача. -->
             {% endif %}
         <!-- Закриваємо цикл користувачів чату. -->

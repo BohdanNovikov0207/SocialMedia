@@ -84,6 +84,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Social_Network.wsgi.application'
 ASGI_APPLICATION = 'Social_Network.asgi.application'
 
+TIME_ZONE = 'Europe/Kiev'
+USE_TZ = True
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels.layers.InMemoryChannelLayer'

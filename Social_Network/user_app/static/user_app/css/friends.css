@@ -132,6 +132,7 @@
     align-items: center;
     justify-content: center;
     width: 96px;
+    position: relative;
 }
 
 .avat-request img{
@@ -244,5 +245,17 @@
     color: rgb(63, 63, 63) ;
     width: 73px;
     height: 20px;
+}
+
+.status-ball-request{
+    width: 18px;
+    height: 18px;
+    top: 70px;
+    left: 70px;
+    border-radius: 184.5px;
+    border-width: 2.25px;
+    border: 2px solid #FFFFFF;
+    position: absolute;
+    background-color: #CDCED2;
 }
 

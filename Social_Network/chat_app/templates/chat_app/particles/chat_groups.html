@@ -1,7 +1,38 @@
+{% load static %}
 <!-- Відкриваємо блок групових чатів. -->
 <section class="chat-block">
     <!-- Показуємо заголовок блоку групових чатів. -->
     <!-- <h2>Групові чати</h2> -->
-    <!-- Показуємо тимчасовий порожній стан. -->
-    <!-- <p>Порожньо</p> -->
+    <!-- Відкриваємо список створених груп поточного користувача. -->
+    <div id="group-list">
+        <!-- Перебираємо групові чати, які backend передав у шаблон. -->
+        {% for chat in group_chats|slice:":6" %}
+            <!-- Кнопка відкриває груповий чат через загальну JS-функцію відкриття чату. -->
+            
+            <div class="in-per groups-chats-container {% if chat.unread_count %}chat-has-unread{% endif %}" 
+                 data-chat-id="{{ chat.id }}"
+                 data-members='[{% for u in chat.users.all %}{"id": {{ u.id }}, "username": "{{ u.username }}"}{% if not forloop.last %},{% endif %}{% endfor %}]'>
+                 
+                <div class="avat">
+                    <img src="{% static 'home_app/images/avatar4.png' %}">
+                </div>
+                <div class="textall">
+                    <div class="text1">
+                        <div class="chat-group-button" data-chat-title="{{ chat.name }}">
+                            <span class="bold-text message-name chat-button-title">{{ chat.name }}</span>
+                        </div>
+                        <span class="gray-color">{{ chat.last_message_time|date:"d.m.Y" }}</span>
+                    </div>
+                    <div class="textelse">
+                        <span class="chat-button-last">{{ chat.last_message_text|default:"" }}</span>
+                    </div>
+                </div>
+            </div>
+        <!-- Якщо груп ще немає, показуємо порожній стан. -->
+        {% empty %}
+            <!-- JS видалить цей текст після створення першої групи без перезавантаження сторінки. -->
+            <p id="group-empty">Порожньо</p>
+        <!-- Закриваємо цикл групових чатів. -->
+        {% endfor %}
+    </div>
 </section>

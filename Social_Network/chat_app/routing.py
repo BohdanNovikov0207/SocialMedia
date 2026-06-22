@@ -4,8 +4,9 @@
     В цьому файлі ми створюємо url-адреси для WebSocket-з`єднань.
 """
 from django.urls import path
-from .consumers import ChatConsumer
+from .consumers import ChatConsumer, PresenceConsumer
 
 websocket_urlpatterns = [
-    path(route='chat_with/<int:chat_id>/', view= ChatConsumer.as_asgi())
+    path(route='chat_with/<int:chat_id>/', view= ChatConsumer.as_asgi()),
+    path(route= "chat/online/", view= PresenceConsumer.as_asgi())
 ]

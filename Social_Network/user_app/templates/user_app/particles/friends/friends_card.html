@@ -1,8 +1,9 @@
 {% load static %}
 {% for person in users %}
-        <article class="friend_request" data-person-id="{{ person.id }}">
+        <article class="friend_request" data-person-id="{{ person.id }}" data-chat-user="{{ person.id }}">
             <div class="avat-request">
                 <img src="{% static 'home_app/images/avatar2.png' %}">
+                <span class="status-ball-request" data-chat-user="{{ person.id }}"></span>
             </div>
             <h3>{% firstof person.last_name person.email %}</h3>
             <p>{{ person.username }}</p>
@@ -27,3 +28,7 @@
 {% empty %}
  <!--<p class="empty-friends">Порожньо</p> -->
 {% endfor %} 
+
+{% block scripts %}
+    <script type="module" src="{% static 'chat_app/js/onlineStatus.js' %}"></script>
+{% endblock %}

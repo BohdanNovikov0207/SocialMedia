@@ -10,6 +10,7 @@
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/chat.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/group_chat.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/chat_content.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/new_group.css' %}">
     <link rel="stylesheet" href="{% static 'chat_app/css/new_group_settings.css' %}">
@@ -19,9 +20,9 @@
 
 {% block side-panel %}
 <div class="chat-side-panel">
-    <button class="create-group" id="create-group">
+    <button class="open-group-modal" id="open-group-modal">
         <img src="{% static 'chat_app/images/chatplus.png' %}" class="chat-plus" >
-        <span class="create-group-text">Створити груповий чат</span>
+        <span class="open-group-modal-text">Створити груповий чат</span>
     </button>
     <div class="chat-list">
         <div class="contacts">
@@ -32,20 +33,61 @@
             <img src="{% static 'images/search.png' %}" class="search-icon">
             <input type="text" class="search-input" placeholder="Пошук">
         </div>
-            {% include "chat_app/particles/chat_contacts.html" %}
+        {% include "chat_app/particles/chat_contacts.html" %}
         
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
+
 <div class="chat-content">
-    <div class="chat-text-center">
-        <div class="chat-text-container">
-            <h2 id="chat-title">Почніть нове спілкування</h2>
-            <p id="chat-status">Оберіть контакт зі списку ліворуч<br> або створіть групу, щоб почати спілкування</p>
+    
+    <div id="top-chat-header" class="chat-content-chat-top">
+        <div class="chat-name-inf-arrow" >
+            <img id="close-chat-button" src="{% static 'images/back_arrow.png' %}" class="arrow">
+            <div class="chat-info">
+                <img src="{% static 'home_app/images/avatar4.png' %}" class="chat-photo">
+                <div class="chat-info-label">
+                    <span id="top-chat-user-id" data-chat-user="{{ friend.id }}" class="friend-name"></span>
+                    <span class="top-chat-user-status" data-is-group="{% if group_chats %}true{% endif %}">offline</span>
+                </div>
+            </div>
+        </div>
+        <div class="dots-cont">
+            <img src="{% static 'images/dots.png' %}" id="edit-menu-dots" class="dots_chat">
+            <div class="overlay-edit-chat" id="overlay">
+                <div class="admin-edit-cont">
+                    <div class="dots-cont-edit">
+                        <img src="{% static 'chat_app/images/dots.png' %}"  class="dots-icon">
+                    </div>
+                    <div class="media">
+
+                        <img src="{% static 'images/post.png' %}" class="media-icon">
+                        <p class="media-text">Медіа</p>
+                    </div>   
+                    <div class="edit-group" id="edit-modal">
+                        <img src="{% static 'images/pen.png' %}" class="edit-icon">
+                        <p class="edit-text">Редагувати групу</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="delete-group">
+                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-icon">
+                        <p class="delete-text">Видалити чат</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+ 
+    <div class="chat-text-center">
+        <div class="chat-text-container is-placeholder" id="chat-text-block">
+            <h2 id="chat-title">Почніть нове спілкування</h2>
+            <p id="chat-status">Оберіть контакт зі списку ліворуч<br> або створіть групу, щоб почати спілкування</p>
+            {% include "chat_app/particles/chat_main.html" %}
+        </div>
+    </div>
+  
 </div>
 <div class="chat-section">
     <div class="chat-messages">
@@ -56,85 +98,7 @@
                 <span>Дивитись всі</span>
             </div>
         </div>
-        {% comment %}
-        <div class="chat-messages-list">
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar4.png' %}">
-                </div>
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Mona Lisa</span>
-                        <span class="gray-color">9:41</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт! Як справи?</span>
-                    </div>    
-                </div> 
-            </div> 
-            
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar5.png' %}">
-                </div>  
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>      
-                </div>
-            </div>  
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar5.png' %}">
-                </div>  
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>      
-                </div>
-            </div>  
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar5.png' %}">
-                </div>  
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>      
-                </div>
-            </div>  
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar5.png' %}">
-                </div>  
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>      
-                </div>
-            </div>  
-        </div>
-        {% endcomment %}
-        {% include "chat_app/particles/chat_sidebar.html" %}
+        {% include "chat_app/particles/chat_messages.html" %}
     </div>
 
     <div class="group-chat">
@@ -147,102 +111,12 @@
         </div>
         
         <div class="chat-messages-list">
-            
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar4.png' %}">
-                </div>
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Mona Lisa</span>
-                        <span class="gray-color">9:41</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт! Як справи?</span>
-                    </div>    
-                </div> 
-            </div> 
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar2.png' %}">
-                </div>
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">New Group</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>    
-                </div> 
-            </div> 
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar1.png' %}">
-                </div>
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>    
-                </div> 
-            </div> 
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar1.png' %}">
-                </div>
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт! </span>
-                    </div>    
-                </div> 
-            </div> 
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar1.png' %}">
-                </div>
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>    
-                </div> 
-            </div> 
-
-            <div class="in-per">
-                <div class="avat">
-                    <img src="{% static 'home_app/images/avatar1.png' %}">
-                </div>
-                <div class="textall">
-                    <div class="text1">
-                        <span class="bold-text">Ann Ti</span>
-                        <span class="gray-color">25.04.2025</span>
-                    </div>
-                    <div class="textelse">
-                        <span>Привіт!</span>
-                    </div>    
-                </div> 
-            </div> 
+            {% include "chat_app/particles/chat_groups.html" %}
         </div> 
     </div> 
 </div> 
 
-{% include 'chat_app/new_group.html' %}
-{% include 'chat_app/new_group_settings.html' %}
+{% include 'chat_app/particles/group_modal.html' %}
 {% include 'chat_app/edit_chat.html' %}
 {% include 'chat_app/edit_group.html' %}
 {% include 'chat_app/add_person.html' %}
@@ -250,5 +124,9 @@
 {% endblock %}
 
 {% block scripts %}
+    <script>const LOGGED_IN_USER = "{{ request.user.username }}";</script>
     <script type="module" src="{% static 'chat_app/js/chat.js' %}"></script>
+    <script type="module" src="{% static 'chat_app/js/group_chat.js' %}" defer></script>
+    <script type="module" src="{% static 'chat_app/js/loadImages.js' %}"></script>
+    <script type="module" src="{% static 'chat_app/js/onlineStatus.js' %}"></script>
 {% endblock %}

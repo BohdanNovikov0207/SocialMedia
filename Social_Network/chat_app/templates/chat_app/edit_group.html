@@ -2,7 +2,7 @@
 <div class="overlay-edit" id="overlay-edit">
     <div class="new-group-container1">
     
-        <div class="close-button">
+        <div class="close-button" id="edit-close-cross">
             <img id="close-button-group" src="{% static 'post_app/images/cross.png' %}" alt="Закрыть">
         </div>
         
@@ -29,34 +29,28 @@
             </div>
         </div> 
         <div class="new-group-friends">
-            <p>Учасники</p>
-            <div class="all-new-group-friends">
-                <div class="friend-choice">
+            <div class="text-members">
+                <p>Учасники</p>
+                <div class="add-member" id="add-member">
+                    <img src="{% static 'chat_app/images/plus_noback.png' %}" class="plus-icon">
+                    <span>Додайте учасника</span>
+                </div>
+            </div>
+            <div class="all-new-group-friends" id="modal-members-list">
+                {% for friend in group_members %}
+                <div class="friend-choice" data-user-id="{{ friend.id }}">
                     <img src="{% static 'home_app/images/avatar6.png' %}" class="friend-avatar">
                     <div class="delete-friend-container">
-                        <span>Aeslie Alexander</span>
-                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-friend">
+                        <span class="user-name-text">{{ friend.username }}</span>
+                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-friend" id="delete-edit-friend">
                     </div>
                 </div>
-                <div class="friend-choice">
-                    <img src="{% static 'home_app/images/avatar6.png' %}" class="friend-avatar">
-                    <div class="delete-friend-container">
-                        <span>Aeslie Alexander</span>
-                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-friend">
-                    </div>
-                </div>
-                <div class="friend-choice">
-                    <img src="{% static 'home_app/images/avatar6.png' %}" class="friend-avatar">
-                    <div class="delete-friend-container">
-                        <span>Aeslie Alexander</span>
-                        <img src="{% static 'chat_app/images/trashcan.png' %}" class="delete-friend">
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="new-group-buttons">
-            <button class="chat-back">Назад</button>
-            <button class="chat-create">Зберегти зміни</button>
-        </div>
+            <button class="chat-back" id="close-edit-modal">Назад</button>
+            <button class="chat-create" id="save-edit-change">Зберегти зміни</button>
+        </div> 
     </div>
 </div>

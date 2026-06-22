@@ -1,0 +1,100 @@
+<!-- Ховаємо модальне вікно створення групи до натискання кнопки "Нова група". -->
+{% load static %}
+<div id="group-modal" class="group-modal" hidden>
+    <!-- Створюємо основний блок модального вікна. -->
+    <div class="new-group-container">
+        <!-- Перший крок: користувач вибирає друзів для майбутньої групи. -->
+        <div id="group-step-users">
+            <!-- Закриваємо модальне вікно без створення групи. -->
+            <div class="close-button" id="close-group-modal">
+                <img id="close-group-modal" src="{% static 'post_app/images/cross.png' %}" alt="close">
+            </div>
+            <!-- Показуємо заголовок першого кроку. -->
+            <div class="new-group-text">
+                <h2><strong>Нова група</strong></h2>
+            </div>
+            <div class="friend-search">
+                <img src="{% static 'images/search.png' %}" class="search-icon">
+                <input type="text" class="search-input" placeholder="Пошук">
+            </div>
+            <!-- Показуємо кількість вибраних друзів. -->
+            <p class="selected-friends" >Вибрано: <span id="selected-count">0</span></p>
+            <div class="list-friend-choices">
+                {% regroup friends by email.0.upper as letter_list %}
+                {% for letter in letter_list %}
+                    <div class="friends-group">
+                        <div class="group-letter">{{ letter.grouper }}</div>
+                        <div class="friends-list">
+                            {% for friend in letter.list %}
+                                <div class="friend-choice-last">
+                                    <img src="{% static 'home_app/images/avatar4.png' %}" class="friend-avatar">
+                                    <span class="user-name-text">{{ friend.email }}</span>
+                                    <div class="friend-choice-tick">
+                                        <input class="group-user-checkbox real-checkbox" type="checkbox" value="{{ friend.id }}" data-user-name="{{ friend.email }}">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="selected-friends" style="text-align: center; margin-top: 20px;">Список друзів порожній</p>
+                {% endfor %}
+            </div>
+            <!-- Кнопки першого кроку модального вікна. -->
+            <div class="group-modal__actions">
+                <!-- Скасовуємо створення групи. -->
+                <button id="cancel-group-modal" class="cancel-group-button" type="button">Скасувати</button>
+                <!-- Переходимо до введення назви групи. -->
+                <button id="next-group-step" type="button" class="create-button">Далі</button>
+            </div>
+        </div>
+    
+
+        <!-- Другий крок: користувач вводить назву групи й підтверджує створення. -->
+        <div id="group-step-name" class="group-step-name" hidden>
+            <!-- Закриваємо модальне вікно з другого кроку. -->
+            <div class="close-button" id="close-group-modal">
+                <img id="close-group-name-modal" src="{% static 'post_app/images/cross.png' %}" alt="close">
+            </div>
+            <!-- Показуємо заголовок другого кроку. -->
+            <div class="new-group-text">
+                <h2><strong>Нова група</strong></h2>
+            </div>
+            <!-- Підписуємо поле назви. -->
+            <div class="container-settings-friends">
+                <div class="new-group-name">
+                    <p>Назва</p>
+                    <input type="text" id="group-name" placeholder="Введіть назву">
+                </div>
+                <div class="group-photo">
+                    <img src="{% static 'home_app/images/avatar6.png' %}" class="group-photo-preview" >
+                    <div class="upload-photo-2">
+                        <div class="upload-icon">
+                            <img src="{% static 'images/plus_noback.png' %}" class="plus-icon"> 
+                            <p>Додайте фото</p>
+                        </div>
+                        <div class="upload-photo">
+                            <img src="{% static 'images/media.png' %}" class="photo-icon"> 
+                            <p>Оберіть фото</p>
+                        </div>
+                    </div>
+                </div> 
+            
+                <!-- Показуємо заголовок списку вибраних учасників. -->
+                <div class="new-group-friends">
+                    <p>Учасники</p>
+                    <div id="selected-users-list" class="all-new-group-friends"></div>
+                </div>
+            
+                <!-- Кнопки другого кроку модального вікна. -->
+                <div class="group-modal__actions">
+                    <!-- Повертаємося до вибору друзів. -->
+                    <div class="new-group-buttons">
+                        <button class="chat-back" id="back-group-step">Назад</button>
+                        <button id="submit-create-group"  class="chat-create">Створити групу</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

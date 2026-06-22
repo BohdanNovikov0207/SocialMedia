@@ -1,15 +1,23 @@
 <!-- Відкриваємо центральний блок активного чату. -->
+{% load static %}
 <section class="chat-main">
     <!-- Ховаємо вікно переписки до вибору конкретної людини. -->
     <div id="chat-window" class="chat-window">
         <!-- Показуємо нові повідомлення тільки в реальному часі. -->
         <div id="messages" class="messages"></div>
         <!-- Створюємо форму відправки повідомлення. -->
-        <form id="message-form" class="message-form">
-            <!-- Додаємо поле для тексту повідомлення. -->
-            <input id="message-input" type="text" placeholder="Повідомлення" autocomplete="off">
-            <!-- Додаємо кнопку відправки повідомлення. -->
-            <button type="submit">Надіслати</button>
-        </form>
+    
+            <form id="message-form" class="message-form">
+                <!-- Додаємо поле для тексту повідомлення. -->
+                <input id="message-input" type="text" placeholder="Повідомлення" autocomplete="off">
+                <!-- Додаємо кнопку відправки повідомлення. -->
+                <input type="file" id="message-images" accept="image/*" multiple hidden>
+                <button type="button" id="message-image-button">
+                    <img src="{% static 'chat_app/images/select_image.png' %}">
+                </button>
+                <button type="submit">
+                    <img src="{% static 'chat_app/images/send_message.png' %}">
+                </button>
+            </form>
     </div>
 </section>
