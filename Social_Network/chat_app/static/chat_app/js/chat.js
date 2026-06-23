@@ -1,4 +1,5 @@
 import { renderMessageImages, hasMessageImages, hasSelectedImages, clearSelectedImages, getSelectedImages } from "./loadImages.js";
+import { groupStatus } from "./onlineStatus.js";
 
 let chatSocket = null
 let observer = null
@@ -166,12 +167,40 @@ async function loadMessages(prepend = false){
         }
     )
     const data = await response.json()
-    const fragment = document.createDocumentFragment()
-    data.messages.forEach(
-        (message) => {
-            fragment.appendChild(renderMessage(message))
+
+    if (!prepend){
+        const topChatUserStatus = document.querySelector('.top-chat-user-status')
+        if (topChatUserStatus){
+            if (data.is_group){
+                topChatUserStatus.setAttribute('data-chat-type', 'group')
+                topChatUserStatus.setAttribute('data-total-members', data.total_members)
+                topChatUserStatus.setAttribute('data-online-users', data.group_users_ids.join(','))
+                if (typeof groupStatus == 'function'){
+                    groupStatus()
+                }
+            }else{
+                topChatUserStatus.removeAttribute('data-chat-type')
+                topChatUserStatus.removeAttribute('data-total-members')
+                topChatUserStatus.removeAttribute('data-online-users')
+                topChatUserStatus.setAttribute('data-personal-user-id', data.other_user_id)
+                const statusBall = document.querySelector(`.status-ball[data-chat-user="${data.other_user_id}"]`)
+                if (statusBall && statusBall.style.backgroundColor === 'rgb(34, 197, 94)'){
+                    topChatUserStatus.innerHTML = 'online'
+                }else{
+                    topChatUserStatus.innerHTML = 'offline'
+                }
+            }
         }
-    )
+    }
+
+    const fragment = document.createDocumentFragment()
+    if (data.messages && data.messages.length > 0){
+        data.messages.forEach(
+            (message) => {
+                fragment.appendChild(renderMessage(message))
+            }
+        )
+    }
     const sentinel = document.getElementById('message-load-sentinel')
     if(prepend){
         sentinel.after(fragment)
@@ -220,6 +249,16 @@ function connectWebSocket(chatId){
         messages.appendChild(renderMessage(data))
         // 
         messages.scrollTop = messages.scrollHeight
+        const unreadBadge = document.getElementById('unread-badge')
+        if (unreadBadge && typeof data.unread_total !== 'undefined'){
+            const count = parseInt(data.unread_total) || 0;
+            if (count > 0){
+                unreadBadge.textContent = count
+                unreadBadge.style.display = 'inline-block'
+            }else{
+                unreadBadge.style.display = 'none'
+            }
+        }
     }
 }
 
@@ -372,7 +411,7 @@ messageForm.addEventListener(
             clearSelectedImages()
             return
         }
-        chatSocket.send(JSON.stringify({text: text}))
+        chatSocket.send(JSON.stringify({text: text}))   
         messageInput.value = ''
     }
 )
@@ -406,9 +445,15 @@ document.addEventListener('click', function(event) {
 
 document.addEventListener('click', function(event) {
     const editModal = document.getElementById('overlay-edit');
+    const newModal = document.getElementById('overlay-new');
+
     const openEditModal = event.target.closest('#edit-modal');
     const closeX = event.target.closest('#edit-close-cross');
     const closeBack = event.target.closest('#close-edit-modal');
+
+    const openNewMemberModal = event.target.closest('#add-member');
+    const cancelNewModal = event.target.closest('#cancel-group-button');
+    const closeXGroup = event.target.closest('#close-button-group');
 
     const deleteEditFriend = event.target.closest('.delete-friend');
     if (deleteEditFriend) {
@@ -430,16 +475,20 @@ document.addEventListener('click', function(event) {
                                document.querySelector('.groups-chats-container');
                                
             const listContainer = document.getElementById('modal-members-list');
+            const groupNameInput = document.getElementById('group-name-input');
+            const chatTitleEl = document.getElementById('chat-title');
+
+            if (groupNameInput && chatTitleEl) {
+                groupNameInput.value = chatTitleEl.textContent.trim();
+            }
 
             if (activeChat && listContainer) {
                 listContainer.innerHTML = '';
-
                 const membersData = activeChat.getAttribute('data-members');
 
                 if (membersData) {
                     try {
                         const members = JSON.parse(membersData);
-
                         members.forEach(member => {
                             const item = document.createElement('div');
                             item.className = 'friend-choice';
@@ -463,70 +512,255 @@ document.addEventListener('click', function(event) {
         return;
     }
 
+   if (openNewMemberModal) {
+        event.preventDefault();
+        
+        const currentMembersOnScreen = Array.from(document.querySelectorAll('#modal-members-list .friend-choice'))
+            .map(item => item.getAttribute('data-user-id'));
+
+        document.querySelectorAll('#overlay-new .group-user-checkbox').forEach(cb => {
+            if (currentMembersOnScreen.includes(cb.value)) {
+                cb.checked = true;
+            } else {
+                cb.checked = false;
+            }
+        });
+
+        if (editModal) editModal.style.display = 'none'; 
+        if (newModal) newModal.style.display = 'flex';  
+        return;
+    }
+
     if (closeX || closeBack) {
         event.preventDefault();
-        if (editModal) {
-            editModal.style.display = 'none';
-        }
+        if (editModal) editModal.style.display = 'none';
         return;
     }
 
-    if (editModal && editModal.style.display === 'flex') {
-        if (event.target === editModal) {
-            editModal.style.display = 'none';
-        }
-    }
-});
-
-
-document.addEventListener('click', function(event) {
-    const editModal = document.getElementById('overlay-edit');
-    const newModal = document.getElementById('overlay-new');
-
-    const openNewMemberModal = event.target.closest('#add-member');
-    const cancelNewModal = event.target.closest('#cancel-group-button');
-
-    if (openNewMemberModal) {
+    if (closeXGroup || cancelNewModal) {
         event.preventDefault();
-        if (editModal) {
-            editModal.style.display = 'none'; 
-        }
-        if (newModal) {
-            newModal.style.display = 'flex';  
-        }
+        if (newModal) newModal.style.display = 'none'; 
+        if (editModal) editModal.style.display = 'flex'; 
         return;
     }
 
-    if (cancelNewModal) {
-        event.preventDefault();
-        if (newModal) {
-            newModal.style.display = 'none'; 
-        }
-        if (editModal) {
-            editModal.style.display = 'flex'; 
-        }
-        return;
+    if (event.target === editModal) {
+        editModal.style.display = 'none';
     }
-
     if (event.target === newModal) {
         newModal.style.display = 'none';
     }
 });
 
 document.addEventListener('click', function(event) {
+    const saveButton = event.target.closest('#save-edit-change');
+    if (!saveButton) return;
+
+    event.preventDefault();
+
+    const groupNameInput = document.getElementById('group-name-input');
+    const newName = groupNameInput ? groupNameInput.value.trim() : '';
+    const editModal = document.getElementById('overlay-edit');
+
+    let currentChatId = null;
+    let activeChat = document.querySelector('.groups-chats-container.active') || 
+                       document.querySelector('.groups-chats-container.selected') ||
+                       document.querySelector('.chat-item.active');
+
+    if (activeChat) {
+        currentChatId = activeChat.getAttribute('data-chat-id') || activeChat.getAttribute('data-id');
+    }
+    
+    if (!currentChatId && typeof activeChatId !== 'undefined') {
+        currentChatId = activeChatId;
+    }
+
+    if (!currentChatId) return;
+
+    if (!activeChat) {
+        activeChat = document.querySelector(`[data-chat-id="${currentChatId}"]`) || 
+                     document.querySelector(`[data-id="${currentChatId}"]`);
+    }
+
+    const addedUserIds = Array.from(document.querySelectorAll('#overlay-new .group-user-checkbox:checked')).map(cb => cb.value);
+    const initialMembers = [];
+    
+    if (activeChat) {
+        try {
+            const parsed = JSON.parse(activeChat.getAttribute('data-members') || '[]');
+            parsed.forEach(m => initialMembers.push(String(m.id)));
+        } catch(e) {}
+    }
+
+    const currentOnScreenIds = Array.from(document.querySelectorAll('#modal-members-list .friend-choice')).map(item => item.getAttribute('data-user-id'));
+    const removedUserIds = initialMembers.filter(id => !currentOnScreenIds.includes(id));
+
+    fetch(`/chats/chat_with/${currentChatId}/update/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken
+        },
+        body: JSON.stringify({
+            'action': 'update_group_settings',
+            'group_id': currentChatId,
+            'new_name': newName,
+            'added_users': addedUserIds,
+            'removed_users': removedUserIds
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            if (editModal) editModal.style.display = 'none';
+
+            const chatTitleEl = document.getElementById('top-chat-user-id') || document.querySelector('.friend-name');
+            if (chatTitleEl && newName) {
+                chatTitleEl.textContent = newName;
+            }
+
+            if (activeChat) {
+                if (newName) {
+                    const titleInList = activeChat.querySelector('.chat-name') || 
+                                        activeChat.querySelector('.group-name') || 
+                                        activeChat.querySelector('.user-name-text') ||
+                                        activeChat.querySelector('strong') || 
+                                        activeChat.querySelector('span') || 
+                                        activeChat.querySelector('p') ||
+                                        activeChat;
+                    
+                    if (titleInList === activeChat) {
+                        activeChat.textContent = newName;
+                    } else if (titleInList) {
+                        titleInList.textContent = newName;
+                    }
+                }
+
+                let currentMembers = [];
+                try {
+                    currentMembers = JSON.parse(activeChat.getAttribute('data-members') || '[]');
+                } catch(e) {}
+
+                currentMembers = currentMembers.filter(m => !removedUserIds.includes(String(m.id)));
+
+                addedUserIds.forEach(id => {
+                    const checkboxEl = document.querySelector(`#overlay-new .group-user-checkbox[value="${id}"]`);
+                    const row = checkboxEl ? checkboxEl.closest('.friend-choice') : null;
+                    const username = row ? row.querySelector('.user-name-text').textContent.trim() : `User ${id}`;
+                    
+                    if (!currentMembers.some(m => String(m.id) === String(id))) {
+                        currentMembers.push({ id: parseInt(id), username: username });
+                    }
+                });
+
+                activeChat.setAttribute('data-members', JSON.stringify(currentMembers));
+            }
+
+            document.querySelectorAll('#overlay-new .group-user-checkbox:checked').forEach(cb => cb.checked = false);
+        }
+    })
+    .catch(err => console.error(err));
+});
+
+document.addEventListener('click', function(event) {
+    const saveNewMembers = event.target.closest('#create-button'); 
+    if (!saveNewMembers) return;
+
+    event.preventDefault();
+
     const editModal = document.getElementById('overlay-edit');
     const newModal = document.getElementById('overlay-new');
+    const listContainer = document.getElementById('modal-members-list');
 
-    const closeXGroup = event.target.closest('#close-button-group');
-    const cancelNewModal = event.target.closest('#cancel-group-button');
-    if (closeXGroup || cancelNewModal) {
-        event.preventDefault();
-        if (newModal) {
-            newModal.style.display = 'none';  
+    if (!listContainer) return;
+
+    const checkedBoxes = document.querySelectorAll('#overlay-new .group-user-checkbox:checked');
+
+    checkedBoxes.forEach(cb => {
+        const userId = cb.value;
+        const username = cb.getAttribute('data-user-name') || `User ${userId}`;
+        
+        const alreadyExists = listContainer.querySelector(`[data-user-id="${userId}"]`);
+        if (!alreadyExists) {
+            const friendRow = cb.closest('.friend-choice') || cb.closest('div'); 
+            const avatarSrc = friendRow && friendRow.querySelector('img') ? friendRow.querySelector('img').src : '/static/home_app/images/avatar6.png';
+
+            const item = document.createElement('div');
+            item.className = 'friend-choice';
+            item.setAttribute('data-user-id', userId);
+            item.innerHTML = `
+                <img src="${avatarSrc}" class="friend-avatar">
+                <div class="delete-friend-container">
+                    <span class="user-name-text">${username}</span>
+                    <img src="/static/chat_app/images/trashcan.png" class="delete-friend">
+                </div>
+            `;
+            listContainer.appendChild(item);
         }
-        if (editModal) {
-            editModal.style.display = 'flex'; 
+        
+    });
+
+    document.querySelectorAll('#overlay-new .group-user-checkbox:not(:checked)').forEach(cb => {
+        const userId = cb.value;
+        const rowOnFirstModal = listContainer.querySelector(`[data-user-id="${userId}"]`);
+        if (rowOnFirstModal) {
+            rowOnFirstModal.remove();
         }
+    });
+
+    if (newModal) newModal.style.display = 'none';
+    if (editModal) editModal.style.display = 'flex';
+});
+
+
+const originalLoadMessages = loadMessages;
+loadMessages = async function(prepend = false) {
+    // Вызываем оригинальный метод загрузки сообщений
+    await originalLoadMessages.call(this, prepend);
+    const topChatUserStatus = document.querySelector('.top-chat-user-status');
+    const menuButton = document.getElementById('edit-menu-dots');
+    
+    if (menuButton && topChatUserStatus) {
+        const isGroup = topChatUserStatus.getAttribute('data-chat-type') === 'group';
+        if (isGroup) {
+            menuButton.style.display = 'block';
+        } else {
+            menuButton.style.display = 'none';
+        }
+    }
+};
+
+
+function updateUnreadCount(count) {
+    const badge = document.getElementById('global-unread-badge');
+    if (!badge) return;
+
+    const numericCount = parseInt(count, 10) || 0;
+
+    if (numericCount > 0) {
+        badge.innerText = numericCount;
+        badge.style.setProperty('display', 'block', 'important');
+    } else {
+        badge.style.setProperty('display', 'none', 'important');
+    }
+}
+
+
+let wsNotification = null; 
+
+function initNotifications() {
+    if (wsNotification && (wsNotification.readyState === WebSocket.OPEN || wsNotification.readyState === WebSocket.CONNECTING)) {
         return;
     }
-});
+
+    wsNotification = new WebSocket(`ws://${window.location.host}/chat/online/`);
+    
+    wsNotification.onmessage = e => {
+        const data = JSON.parse(e.data);
+        if (data.unread_count !== undefined) {
+            updateUnreadCount(data.unread_count);
+        }
+    };
+}
+
+initNotifications();

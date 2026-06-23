@@ -93,6 +93,7 @@
     <div class="chat-messages">
         <div class="chat-messages-top">
             <img src="{% static 'home_app/images/alert.png' %}" class="chat-avatar">
+            <span id="global-unread-badge" class="notification-badge" style="display: none;">0</span>
             <p>Повідомлення</p>
             <div class="view-all">
                 <span>Дивитись всі</span>
@@ -105,9 +106,6 @@
         <div class="chat-messages-top">
             <img src="{% static 'home_app/images/alert.png' %}">
             <p>Групові чати</p>
-            <div class="view-all">
-                <span>Дивитись всі</span>
-            </div>
         </div>
         
         <div class="chat-messages-list">

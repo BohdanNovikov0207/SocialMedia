@@ -6,7 +6,7 @@
     <!-- Відкриваємо список створених груп поточного користувача. -->
     <div id="group-list">
         <!-- Перебираємо групові чати, які backend передав у шаблон. -->
-        {% for chat in group_chats|slice:":6" %}
+        {% for chat in group_chats %}
             <!-- Кнопка відкриває груповий чат через загальну JS-функцію відкриття чату. -->
             
             <div class="in-per groups-chats-container {% if chat.unread_count %}chat-has-unread{% endif %}" 
